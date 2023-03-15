@@ -1,0 +1,107 @@
+.login-form .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form .card .shape {
+    width: 300px;
+    height: 300px;
+    border-radius: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -180px;
+    background: #b4b4b428;
+    transform: rotate(45deg);
+}
+
+.login-form .card .card-header i {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.login-form .card .card-header h2 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.login-form .card .card-body {
+    position: relative;
+}
+
+.login-form .card .card-body label {
+    font-size: 16px;
+}
+
+.login-form .card .card-body input,
+.login-form .card .card-body textarea,
+.login-form .card .card-body select {
+    /* border: 1px solid #aaa; */
+    background: #eeeeee;
+    border-radius: 10px;
+}
+
+.login-form .card .card-body input:focus,
+.login-form .card .card-body textarea,
+.login-form .card .card-body select:focus {
+    border: 1px solid #3F8EFC;
+}
+
+.login-form .card .card-body .btn {
+    background: #3F8EFC;
+    color: #fff;
+    height: 47px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-form .card .card-body .btn:hover {
+    background: #004492;
+    color: #fff;
+}
+
+.login-form .card .card-body .custom-control label {
+    font-size: 16px;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+.form-group a {
+    text-align: center;
+}
+
+.input-icon2 {
+    color: #3F8EFC;
+    font-size: 18px;
+    text-align: center;
+    line-height: 38px;
+    height: 35px;
+    width: 80px;
+    vertical-align: top;
+    display: inline-block;
+    margin: -35px 0px 0px 400px;
+    cursor: pointer;
+}
+
+.back_button {
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 70px;
+    height: 47px;
+    position: absolute;
+    color: white;
+    background: #3F8EFC;
+    border-radius: 10px;
+    border-width: 0px !important;
+    font-size: 20px;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
+.login_link {
+    color: grey;
+    text-decoration: none;
+}
