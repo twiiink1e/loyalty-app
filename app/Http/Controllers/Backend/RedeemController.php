@@ -59,17 +59,16 @@ class RedeemController extends Controller
      */
     public function store(Request $request)
     {
-
-        $reward = Reward::where('id', $request->reward_id)
-            ->first();
-
-        $credit = $reward->point;
-
         $request->validate([
             'customer_id' => 'required',
             'reward_id' => 'required',
             // 'status' => 'required',
         ]);
+
+        $reward = Reward::where('id', $request->reward_id)
+            ->first();
+
+        $credit = $reward->point;
 
         $customer = Point::where('customer_id', $request->customer_id)
             ->where('company_id', $request->company_id)
@@ -178,7 +177,6 @@ class RedeemController extends Controller
         $request->validate([
             'customer_id' => 'required',
             'reward_id' => 'required',
-
         ]);
 
         $customer = Point::where('customer_id', $request->customer_id)
@@ -259,6 +257,7 @@ class RedeemController extends Controller
             $redeem->update(['status' => 'pending']);
             return redirect()->route('redeems.index');
         }
-        return redirect()->route('redeems.index');
+        return redirect()->route('redeems.index')
+        ->with('success', 'Status updated successfully.');
     }
 }

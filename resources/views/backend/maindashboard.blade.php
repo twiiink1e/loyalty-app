@@ -172,6 +172,134 @@
                 </div>
                 <!-- end tab pane -->
             </div>
+            @forelse($calculations as $calculation)
+                <div class="row">
+                    <div class="col">
+                        <div class="card border">
+                            <div class="card-header bg-transparent">
+                                <h5 class="my-0">
+                                    <i class="mdi mdi-alarm-plus me-3"></i>Calculation
+                                    <button type="button" class="btn btn-light btn-md waves-effect float-end text-primary"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Edit
+                                    </button>
+                                </h5>
+
+
+                                <!-- Static Backdrop Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" role="dialog"
+                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Point calculation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('calculations.update', $calculation->id) }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="row">
+                                                        <label for="horizontal-firstname-input"
+                                                            class="col-sm-3 col-form-label">1
+                                                            POINT =</label>
+                                                        <div class="col-sm-9 mb-3">
+                                                            <input type="text" class="form-control"
+                                                                id="horizontal-firstname-input" placeholder="Enter amount"
+                                                                name="main" value="{{ $calculation->main }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">1 POINT = {{ $calculation->main }} $</h5>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div>
+
+            @empty
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card border">
+                            <div class="card-header bg-transparent">
+                                <h5 class="my-0">
+                                    <i class="mdi mdi-alarm-plus me-3"></i>Calculation
+                                    <button type="button"
+                                        class="btn btn-light btn-md waves-effect float-end text-primary"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Create
+                                    </button>
+                                </h5>
+
+
+                                <!-- Static Backdrop Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" role="dialog"
+                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Point calculation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('calculations.store') }}" method="POST">
+                                                    @csrf
+                                                    <div class="row">
+
+                                                        <select class="form-select form-select-lg mb-3" name="company_id"
+                                                            aria-label=".form-select-lg example" hidden>
+                                                            @foreach ($companies as $company)
+                                                                <option value="{{ $company->id }}">{{ $company->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+
+                                                        <label for="horizontal-firstname-input"
+                                                            class="col-sm-3 col-form-label">1
+                                                            POINT =</label>
+                                                        <div class="col-sm-9 mb-3">
+                                                            <input type="text" class="form-control"
+                                                                id="horizontal-firstname-input" placeholder="Enter amount"
+                                                                name="main">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">1 points = ... $</h5>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div>
+            @endforelse
+
         </div>
 
         <div class="col-xl-6 col-md-6">
@@ -224,135 +352,5 @@
     </div> <!-- end row -->
 
 
-        @forelse($calculations as $calculation)
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card border">
-                        <div class="card-header bg-transparent">
-                            <h5 class="my-0">
-                                <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                {{-- <a href="" class="card-text float-end">
-                    </a> --}}
-                                <button type="button" class="btn btn-light btn-md waves-effect float-end text-primary"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    Edit
-                                </button>
-                            </h5>
-
-
-                            <!-- Static Backdrop Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" role="dialog"
-                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Point calculation</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('calculations.update', $calculation->id) }}"
-                                                method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-                                                <div class="row">
-                                                    <label for="horizontal-firstname-input"
-                                                        class="col-sm-3 col-form-label">1
-                                                        POINT =</label>
-                                                    <div class="col-sm-9 mb-3">
-                                                        <input type="text" class="form-control"
-                                                            id="horizontal-firstname-input" placeholder="Enter amount"
-                                                            name="main" value="{{ $calculation->main }}">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title">1 POINT = {{ $calculation->main }} $</h5>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-            </div>
-
-        @empty
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card border">
-                        <div class="card-header bg-transparent">
-                            <h5 class="my-0">
-                                <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                {{-- <a href="" class="card-text float-end">
-                    </a> --}}
-                                <button type="button" class="btn btn-light btn-md waves-effect float-end text-primary"
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                    Create
-                                </button>
-                            </h5>
-
-
-                            <!-- Static Backdrop Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" role="dialog"
-                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Point calculation</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('calculations.store') }}" method="POST">
-                                                @csrf
-                                                <div class="row">
-
-                                                    <select class="form-select form-select-lg mb-3" name="company_id"
-                                                        aria-label=".form-select-lg example" hidden>
-                                                        @foreach ($companies as $company)
-                                                            <option value="{{ $company->id }}">{{ $company->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-
-                                                    <label for="horizontal-firstname-input"
-                                                        class="col-sm-3 col-form-label">1
-                                                        POINT =</label>
-                                                    <div class="col-sm-9 mb-3">
-                                                        <input type="text" class="form-control"
-                                                            id="horizontal-firstname-input" placeholder="Enter amount"
-                                                            name="main">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title">1 points = ... $</h5>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-            </div>
-        @endforelse
 
 @endsection

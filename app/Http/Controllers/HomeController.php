@@ -30,7 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $announcements = Announcement::get();
+
+        return view('newwelcome', compact('announcements'));
     } 
   
     /**
@@ -40,6 +42,7 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
+        
         $user= Auth::user();
         $company= $user->company;
         $rewards= $company ? $company->rewards()->get() : [];
@@ -58,7 +61,8 @@ class HomeController extends Controller
         $announcementCount = $company->announcements()->count();
         $redeemCount = $company->redeems()->count();
 
-        return view('backend.maindashboard', compact('companies', 'rewards', 'company', 'calculations', 'rewardCount', 'announcementCount', 'customerCount', 'redeemCount'));
+        return view('backend.maindashboard', 
+        compact('companies', 'rewards', 'company', 'calculations', 'rewardCount', 'announcementCount', 'customerCount', 'redeemCount'));
     }
   
     /**
@@ -70,4 +74,5 @@ class HomeController extends Controller
     {
         return view('managerHome');
     }
+
 }

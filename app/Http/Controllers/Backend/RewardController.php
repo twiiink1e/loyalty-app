@@ -57,8 +57,17 @@ class RewardController extends Controller
             'point' => 'required',
 
         ]);
+
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'rewardImages/';
+            $coverImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $coverImage);
+            $input['image'] = "$coverImage";
+        }
     
-        Reward::create($request->all());
+        Reward::create($input);
      
         return redirect()->route('rewards.index')
                         ->with('success','Reward created successfully.');
@@ -70,9 +79,9 @@ class RewardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Reward $reward)
     {
-        //
+        return view('backend.rewards.show', compact('reward'));
     }
 
     /**
@@ -81,9 +90,17 @@ class RewardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Reward $reward)
     {
-        //
+        $id=Auth::user()->id;
+
+        $companies = Company::select()
+        
+        ->where('user_id', '=', $id)
+
+        ->get();
+
+        return view('backend.rewards.edit', compact('reward', 'companies'));
     }
 
     /**
@@ -93,9 +110,35 @@ class RewardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Reward $reward)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'point' => 'required',
+
+        ]);
+
+        // dd($request->all());
+
+        $input = $request->all();
+
+        // dd($input);
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'rewardImages/';
+            $coverImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $coverImage);
+            $input['image'] = "$coverImage";
+        }else{
+            unset($input['image']);
+        }
+        
+        $reward->update($input);
+
+        // $reward->update($request->all());
+     
+        return redirect()->route('rewards.index')
+                        ->with('success','Reward updated successfully.');
     }
 
     /**

@@ -1,0 +1,28 @@
+.bootstrap-select {
+    max-width: 500px;
+}
+
+.bootstrap-select .btn {
+    /* background-color: #141414; */
+    width: 480px;
+    border-style: solid;
+    border: 1px solid rgb(214, 214, 214);
+    /* color: white; */
+    font-weight: 200;
+    padding: 12px 12px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.bootstrap-select .dropdown-menu {
+    min-width: 480px;
+    margin: 15px 0 0;
+}
+
+select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+}

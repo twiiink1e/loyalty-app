@@ -29,12 +29,15 @@
 
             <p class="mb-2">Cost:</p>
             <h5 class="font-size-15">{{ $redeem->reward->point }} pt</h5>
+            
+            <p class="mb-2">Status:</p>
+            <h5 class="font-size-15">{{ $redeem->status }}</h5>
 
             <p class="mb-2">Redeem date:</p>
             <h5 class="font-size-15">{{ $redeem->created_at }} </h5>
 
 
-            <a class="btn btn-primary mt-3" href="{{ route('customers.index') }}">Back</a>
+            <a class="btn btn-primary mt-3" href="{{ route('redeems.index') }}">Back</a>
         </div>
     </div>
 </div><!-- end col -->

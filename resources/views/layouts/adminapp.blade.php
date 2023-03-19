@@ -42,6 +42,15 @@
     <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
         rel="stylesheet" type="text/css" />
 
+    <!-- choices css -->
+    <link href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}" rel="stylesheet"
+        type="text/css" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
+
+    <link href="{{ asset('assets/css/selectpicker.css') }}" rel="stylesheet">
+
 
 </head>
 
@@ -63,8 +72,8 @@
                                 <img src="{{ asset('assets/images/newlogo.png') }}F" alt="" height="50">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/newlogo.png') }}" alt="" height="44"> <span
-                                    class="logo-txt">Loyaltee</span>
+                                <img src="{{ asset('assets/images/newlogo.png') }}" alt="" height="44">
+                                <span class="logo-txt">Loyaltee</span>
                             </span>
                         </a>
 
@@ -73,8 +82,8 @@
                                 <img src="{{ asset('assets/images/newlogo.png') }}" alt="" height="60">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('assets/images/newlogo.png') }}" alt="" height="60"> <span
-                                    class="logo-txt">Loyaltee</span>
+                                <img src="{{ asset('assets/images/newlogo.png') }}" alt="" height="60">
+                                <span class="logo-txt">Loyaltee</span>
                             </span>
                         </a>
                     </div>
@@ -220,25 +229,6 @@
                             </a>
                         </li>
 
-                        {{-- <li>
-                            <a href="#">
-                                <i data-feather="mail"></i>
-                                <span data-key="t-chat">Messages</span>
-                            </a>
-                        </li> --}}
-
-                        {{-- <li>
-                            <a href="javascript: void(0);" class="has-arrow">
-                                <i data-feather="trello"></i>
-                                <span data-key="t-tasks">Tasks</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="tasks-list.html" key="t-task-list">Task List</a></li>
-                                <li><a href="tasks-kanban.html" key="t-kanban-board">Kanban Board</a></li>
-                                <li><a href="tasks-create.html" key="t-create-task">Create Task</a></li>
-                            </ul>
-                        </li> --}}
-
                     </ul>
 
                 </div>
@@ -280,6 +270,7 @@
     <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
+    
     <!-- pace js -->
     <script src="{{ asset('assets/libs/pace-js/pace.min.js') }}"></script>
 
@@ -297,17 +288,41 @@
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
+    <!-- Responsive datatable examples -->
+    <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+
     <!-- Datatable init js -->
     <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
+    <!-- Alert init js -->
+    <script src="{{ asset('assets/js/pages/alert.init.js') }}"></script>
+
     <!-- dropzone js -->
     <script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+
+    <!-- choices js -->
+    <script src="{{ asset('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 
     {{-- Sweet Alert --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Buttons examples -->
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    <!-- init js -->
+    <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
+
+ 
     <script type="text/javascript">
         $('.show-alert-delete-box').click(function(event) {
             var form = $(this).closest("form");
@@ -344,7 +359,6 @@
             });
         });
     </script>
-
 
 </body>
 

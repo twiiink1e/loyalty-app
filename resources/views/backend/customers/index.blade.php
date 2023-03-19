@@ -29,21 +29,23 @@
                             style="float: right; margin-top: -25px"><i data-feather="plus-circle"
                                 class="icon-lg"></i>&emsp;Create Customer</button>
                     </a>
+                </div>
 
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success mt-3">
-                        <p>{{ $message }}</p>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show"
+                        role="alert">
+                        <i class="mdi mdi-check-all label-icon"></i><strong>Success</strong> - {{ $message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                </div>
                 <div class="card-body">
 
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Tel</th>
+                                <th>Phone Number</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -51,7 +53,7 @@
 
                         <tbody>
 
-                            @foreach($customers as $customer)
+                            @foreach ($customers as $customer)
                                 <tr>
                                     <td>{{ $customer->id }}</td>
                                     <td>{{ $customer->name }}</td>
@@ -60,22 +62,24 @@
                                     <td>
                                         <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
 
-                                        <a class="btn btn-outline-secondary btn-sm edit" title="View" href="{{ route('customers.show', $customer->id) }}"> 
-                                            <i class=" fas fa-eye"></i>
-                                        </a>
+                                            <a class="btn btn-outline-secondary btn-sm edit" title="View"
+                                                href="{{ route('customers.show', $customer->id) }}">
+                                                <i class=" fas fa-eye"></i>
+                                            </a>
 
-                                        <a class="btn btn-outline-secondary btn-sm edit" title="Edit" href="{{ route('customers.edit', $customer->id) }}">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </a>
-                                       
-                                        @csrf
-                                        @method('DELETE')
+                                            <a class="btn btn-outline-secondary btn-sm edit" title="Edit"
+                                                href="{{ route('customers.edit', $customer->id) }}">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
 
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit"
-                                            class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
-                                            data-toggle="tooltip" title='Delete'><i
-                                                class='fas fa-trash-alt'></i></button>
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit"
+                                                class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
+                                                data-toggle="tooltip" title='Delete'><i
+                                                    class='fas fa-trash-alt'></i></button>
                                         </form>
                                     </td>
                                 </tr>

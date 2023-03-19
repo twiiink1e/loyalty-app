@@ -19,7 +19,7 @@
     <!-- end page title -->
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Form Input</h4>
@@ -48,10 +48,11 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="example-tel-input" class="form-label">Phone Number</label>
-                                    <select class="form-select form-select-lg mb-3" name="customer_id"
-                                        aria-label=".form-select-lg example">
-                                        <option value="">Choose Customer</option>
+                                    <label for="example-tel-input" class="form-label">Customer</label>
+                                    <br>
+                                    <select class="selectpicker" data-show-subtext="true" data-live-search="true"
+                                        required name="customer_id">
+                                        {{-- <option value="">Choose Customer</option> --}}
                                         @foreach ($customers as $customer)
                                             <option value="{{ $customer->id }}" {{ $payment->customer_id == $customer->id ? 'selected' : '' }} >{{ $customer->name }}</option>
                                         @endforeach

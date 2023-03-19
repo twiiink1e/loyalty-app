@@ -34,8 +34,11 @@
 
                     <div class="mt-4">
                         @if ($message = Session::get('success'))
-                            <div class="alert alert-success">
-                                <p>{{ $message }}</p>
+                            <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show"
+                                role="alert">
+                                <i class="mdi mdi-check-all label-icon"></i><strong>Success</strong> - {{ $message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                         @endif
                     </div>
@@ -44,7 +47,7 @@
 
 
                 <div class="card-body">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -65,7 +68,8 @@
                                     {{-- <td>{{ $payment->remark }}</td> --}}
                                     <td>
                                         <form action="{{ route('payments.destroy', $payment->id) }}" method="POST">
-                                            <a class="btn btn-outline-secondary btn-sm edit" title="View" href="{{ route('payments.show', $payment->id) }}">
+                                            <a class="btn btn-outline-secondary btn-sm edit" title="View"
+                                                href="{{ route('payments.show', $payment->id) }}">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
 

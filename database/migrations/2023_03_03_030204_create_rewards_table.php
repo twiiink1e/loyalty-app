@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->integer('point')->nullable();
             $table->string('remark')->nullable();
+            // $table->string('image')->nullable();
             
             $table->unsignedBigInteger('company_id');
 

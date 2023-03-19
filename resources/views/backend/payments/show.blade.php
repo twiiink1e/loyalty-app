@@ -37,7 +37,7 @@
             <h5 class="font-size-15">{{ $payment->created_at }} </h5>
 
 
-            <a class="btn btn-primary mt-3" href="{{ route('customers.index') }}">Back</a>
+            <a class="btn btn-primary mt-3" href="{{ route('payments.index') }}">Back</a>
         </div>
     </div>
 </div><!-- end col -->

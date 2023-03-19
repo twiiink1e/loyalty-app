@@ -13,6 +13,7 @@ class Reward extends Model
         'point',
         'remark',
         'company_id',
+        'image',
     ];
 
     public function company()

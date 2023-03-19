@@ -209,4 +209,31 @@ class PaymentController extends Controller
         return redirect()->route('payments.index')
         ->with('success', 'Payment deleted successfully');
     }
+
+    public function customerStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address'=> 'required',
+            // 'user_id' => 'required',
+        ]);
+
+        $customer=Customer::create($request->all());
+
+        $customer_id = $customer->id;
+        $company_id = $customer->company_id;
+
+
+        Point::create([
+            'customer_id' => $customer_id,
+            'company_id' => $company_id,
+            'point' => 0,
+        ]);
+
+
+        return redirect()->route('payments.create')
+        ->with('success','Customer created successfully.');
+    }
+
 }

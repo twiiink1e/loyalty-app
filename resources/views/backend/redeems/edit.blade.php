@@ -19,13 +19,13 @@
     <!-- end page title -->
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Form Input</h4>
                     <p class="card-title-desc">Fill all information below</p>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success mt-4">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -48,23 +48,27 @@
 
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Customer</label>
-                                        <select class="form-select form-select-lg mb-3" name="customer_id"
-                                            aria-label=".form-select-lg example" required>
-                                            <option value="">Choose Customer</option>
+                                        <br>
+                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true"
+                                            required name="customer_id">
                                             @foreach ($customers as $customer)
-                                                <option value="{{ $customer->id }}" {{ $redeem->customer_id == $customer->id ? 'selected' : '' }} >{{ $customer->name }}</option>
+                                                <option value="{{ $customer->id }}"
+                                                    {{ $redeem->customer_id == $customer->id ? 'selected' : '' }}>
+                                                    {{ $customer->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Reward</label>
-                                        <select class="form-select form-select-lg mb-3" name="reward_id"
-                                            aria-label=".form-select-lg example" required>
-                                            <option value="">Choose Reward</option>
+                                        <br>
+                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true"
+                                            required name="reward_id" required>
                                             {{-- <option value="">Choose company</option> --}}
                                             @foreach ($rewards as $reward)
-                                                <option value="{{ $reward->id }}"  {{ $redeem->reward_id == $reward->id ? 'selected' : '' }}>{{ $reward->name }}</option>
+                                                <option value="{{ $reward->id }}"
+                                                    {{ $redeem->reward_id == $reward->id ? 'selected' : '' }}>
+                                                    {{ $reward->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

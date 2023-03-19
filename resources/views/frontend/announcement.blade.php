@@ -1,56 +1,42 @@
 @extends('layouts.userapp')
 @section('content')
-<section class="section">
-    <div class="row justify-content-center">
-        <div class="row">
-            <h5 style="background-color: #1A374D; color: white; line-height: 50px;">Announcement List</h5>
-        </div>
+    <section class="section">
+        <div class="row justify-content-center">
+            <div class="row">
+                <div class="col">
+                    <h4 style="color: black;line-height: 75px; text-decoration: underline">Announcement List</h4>
+                </div>
 
-        @for ($i = 0; $i <= 3; $i++)
-        <div class="row mt-4">
-            <div class="col-xs-12 col-sm-4">
-                <div class="card p-3">
-                    <img class="img-card"
-                        src="https://www.designyourway.net/blog/wp-content/uploads/2010/11/Nike-Print-Ads-10.jpg"
-                        alt="Card image cap">   
-                    <div class="card-block">
-                        <h4 class="card-title mt-3">NIKE</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div class="col">
+                    <div class="search-bar">
+                        <form id="searchthis" action="{{ route('announcements.search') }}" style="display:inline;" method="get">
+                            <input id="namanyay-search-box" name="inputSearch" size="40" type="text"
+                                placeholder="Search" value="{{ request('inputSearch') }}" />
+                            {{-- <input id="namanyay-search-btn" value="Go" type="button"/> --}}
+                            <span id="namanyay-search-btn">
+                                <button type="submit">
+                                    <i class='bx bx-search'></i>
+                                </button>
+                            </span>
+                        </form>
                     </div>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-4">
-                <div class="card p-3">
-                    <img class="img-card"
-                        src="https://newspaperads.ads2publish.com/wp-content/uploads/2017/10/adidas-uprising-wear-it-at-the-uprising-ad-times-of-india-mumbai-14-10-2017.jpg"
-                        alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title mt-3">NIKE</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div class="row mt-4">
+                @foreach ($announcements as $announcement)
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card p-3 mb-3">
+                            <img src="/thumbnails/{{ $announcement->thumbnail }}" height="350px">
+                            <div class="card-block">
+                                <h4 class="card-title mt-3">{{ $announcement->topic }}</h4>
+                                <p class="card-text">{{ $announcement->description }}</p>
+                                <p class="card-text"><small class="text-muted">{{ $announcement->company->name }}</small></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
+    </section>
 
-            <div class="col-xs-12 col-sm-4">
-                <div class="card p-3">
-                    <img class="img-card"
-                        src="https://media.karousell.com/media/photos/products/2022/8/27/nike_dunk_low_gym_red_uk_75_bn_1661599395_fa0aa19e_progressive.jpg"
-                        alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title mt-3">NIKE</h4>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endfor
-    </div>
-</section>
 @endsection

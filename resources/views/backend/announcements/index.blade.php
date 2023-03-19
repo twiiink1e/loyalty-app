@@ -32,8 +32,11 @@
 
                     <div class="mt-4">
                         @if ($message = Session::get('success'))
-                            <div class="alert alert-success">
-                                <p>{{ $message }}</p>
+                            <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show"
+                                role="alert">
+                                <i class="mdi mdi-check-all label-icon"></i><strong>Success</strong> - {{ $message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                         @endif
                     </div>
@@ -45,9 +48,10 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th style="width: 100px">Thumbnail</th>
                                 <th>Reward</th>
                                 <th>Topic</th>
-                                <th>Description</th>
+                                <th style="width: 350px">Description</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -56,14 +60,16 @@
                             @foreach ($announcements as $announcement)
                                 <tr>
                                     <td>{{ $announcement->id }}</td>
+                                    <td><img src="/thumbnails/{{ $announcement->thumbnail }}" width="100px"></td>
                                     <td>{{ $announcement->reward->name }}</td>
                                     <td>{{ $announcement->topic }}</td>
                                     <td>{{ $announcement->description }}</td>
- 
+
                                     <td>
-                                        <form action="{{ route('announcements.destroy', $announcement->id) }}" method="POST">
+                                        <form action="{{ route('announcements.destroy', $announcement->id) }}"
+                                            method="POST">
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                            href="{{ route('announcements.show', $announcement->id) }}">
+                                                href="{{ route('announcements.show', $announcement->id) }}">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
                                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit"

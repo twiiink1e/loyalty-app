@@ -84,8 +84,8 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
-                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -189,124 +189,28 @@
                     <div class="row justify-content-center">
                         <div class="content">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://cache.dominos.com/wam/prod/market/SA/_en/images/promo/97f169b4-5647-4de4-ad80-cbeafcd204bf.png" />
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">Domino Company</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://foodbuzz.site/api/v1/files/3E961170-47D5-443C-BFB6-D927360FAE97" />
+                                @foreach ($announcements as $announcement)
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="cardhome">
+                                            <a class="img-card" href="#">
+                                                <img src="/thumbnails/{{ $announcement->thumbnail }}">
+                                            </a>
+                                            <div class="card-content">
 
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">Brown Cafe</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://assets.sunwayputramall.com/promotions/6608d375473be20385ed6d0299083be5/w768.jpg" />
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">Starbucks Coffee</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
-                                        </div>
-                                        <div class="card-read-more">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                                <h4 class="card-title">
+                                                    <a href="#">{{ $announcement->topic }}</a>
+                                                </h4>
+                                                <p>
+                                                    {{ $announcement->description }}
+                                                </p>
+                                                <p>
+                                                    {{ $announcement->company->name }}
+                                                </p>
 
-                <div class="container">
-                    <div class="blank"></div>
-                    <div class="row justify-content-center">
-                        <div class="content">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://www.ppcbank.com.kh/wp-content/uploads/2021/03/ppcbank-pizza-visa-promo-en.jpg" />
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">The Pizza Compnay</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://www.cafe-amazon.com/BackEnd/TempPromotion/f46a16655be0434db320d8aadcca497b.jpg" />
-
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">Amazon Cafe</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="cardhome">
-                                        <a class="img-card" href="#">
-                                            <img
-                                                src="https://sg.everydayonsales.com/wp-content/uploads/2020/08/Adidas-Opening-Sale-at-Shopee.jpg" />
-                                        </a>
-                                        <div class="card-content">
-                                            <h4 class="card-title">
-                                                <a href="#">Adidas</a>
-                                            </h4>
-                                            <p class="">
-                                                Enjoy the limitless style of Parisian design. A major player since
-                                                bursting onto the fashion scene in 1933.
-                                            </p>
-                                        </div>
-                                        <div class="card-read-more">
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -539,7 +443,6 @@
 
     <!-- App js -->
     <script src="assets/front/js/app.js"></script>
-
 
 </body>
 

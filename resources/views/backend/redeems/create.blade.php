@@ -19,7 +19,7 @@
     <!-- end page title -->
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Form Input</h4>
@@ -36,9 +36,11 @@
                         </div>
                     @endif
 
-                    @if(isset($success))
-                        <div class="alert alert-danger mt-2 mb-0">
-                            <p>{{ $success }}</p>
+                    @if (isset($success))
+                        <div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show mt-2 mb-0"
+                            role="alert">
+                            <i class="mdi mdi-block-helper label-icon"></i><strong>Error: </strong> {{ $success }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
                 </div>
@@ -58,26 +60,32 @@
                                             <option value="{{ $company->id }}">{{ $company->name }}</option>
                                         @endforeach
                                     </select>
- 
+
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Customer</label>
-                                        <select class="form-select form-select-lg mb-3" name="customer_id"
-                                            aria-label=".form-select-lg example" required>
+                                        <select class="form-control" data-trigger name="customer_id"
+                                        id="choices-single-default"
+                                        placeholder="Choose reward" required>
                                             <option value="">Choose Customer</option>
                                             @foreach ($customers as $customer)
-                                                <option value="{{ $customer->id }}" {{ old('customer_id', request()->get('customer_id')) ==  $customer->id  ? 'selected' : '' }} >{{ $customer->name }}</option>
+                                                <option value="{{ $customer->id }}"
+                                                    {{ old('customer_id', request()->get('customer_id')) == $customer->id ? 'selected' : '' }}>
+                                                    {{ $customer->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Reward</label>
-                                        <select class="form-select form-select-lg mb-3" name="reward_id"
-                                            aria-label=".form-select-lg example" required>
+                                        <select required class="form-control" data-trigger name="reward_id"
+                                        id="choices-single-default"
+                                        placeholder="Choose reward" >
                                             <option value="">Choose Reward</option>
                                             {{-- <option value="">Choose company</option> --}}
                                             @foreach ($rewards as $reward)
-                                                <option value="{{ $reward->id }}"  {{ old('reward_id', request()->get('reward_id')) ==  $reward->id  ? 'selected' : '' }}>{{ $reward->name }}</option>
+                                                <option value="{{ $reward->id }}"
+                                                    {{ old('reward_id', request()->get('reward_id')) == $reward->id ? 'selected' : '' }}>
+                                                    {{ $reward->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -87,13 +95,13 @@
                                         <select class="form-select form-select-lg mb-3" name="status"
                                             aria-label=".form-select-lg example" required>
                                             {{-- <option value="">Choose Status</option> --}}
-                                            <option selected    value="pending">Pending</option>
+                                            <option selected value="pending">Pending</option>
                                             <option value="success">Success</option>
                                         </select>
                                     </div>
 
 
-                                    <div class="float-end mt-2">
+                                    <div class="float-end mt-4">
                                         <button type="submit" class="btn btn-primary w-md">Submit</button>
                                     </div>
                                 </div>
@@ -105,4 +113,5 @@
         </div> <!-- end col -->
     </div>
     <!-- end row -->
+
 @endsection

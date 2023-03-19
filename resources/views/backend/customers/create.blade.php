@@ -33,6 +33,7 @@
                 <div class="card-body p-4">
                     <form action="{{ route('customers.store') }}" method="POST">
                         @csrf
+                
                         <div class="row">
                             <div class="col-lg-12">
                                 <div>

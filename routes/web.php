@@ -13,7 +13,8 @@ use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\PointController;
 use App\Http\Controllers\Backend\RedeemController;
 use App\Http\Controllers\Backend\RewardController;
-
+use App\Http\Controllers\Frontend\AnnouncementFrontController;
+use App\Http\Controllers\Frontend\HomeFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,17 +28,16 @@ use App\Http\Controllers\Backend\RewardController;
 */
   
 
-Route::get('/', function () {
-    return view('newwelcome');
-})->name('welcome');
+Route::get('/', [HomeFrontController::class, 'index'])->name('welcome');
 
 Route::get('/error', function () {
     return view('errors.deny');
 })->name('deny');
 
-Route::get('/announcement', function () {
-    return view('frontend.announcement');
-})->name('announcement');
+Route::get('/announcement', [AnnouncementFrontController::class, 'index'])->name('announcements');
+
+Route::get('/search', [AnnouncementFrontController::class, 'search'])->name('announcements.search');
+
   
 Auth::routes();
   
@@ -86,6 +86,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('admin/change-password', [AdminPasswordController::class, 'changePassword'])->name('admin-change-password');
     Route::post('admin/change-password', [AdminPasswordController::class, 'updatePassword'])->name('admin-update-password');
+
+    Route::post('admin/payments/customer', [PaymentController::class, 'customerStore'])->name('customerStore');
 
     
 });

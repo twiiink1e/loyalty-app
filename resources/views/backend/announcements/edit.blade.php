@@ -67,6 +67,8 @@
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Thumbnail</label>
                                         <input class="form-control mb-4" type="file" value="" id="example-tel-input" name="thumbnail">
+
+                                    <label for="" class="form-label">Current Image</label><br>
                                         <img src="/thumbnails/{{ $announcement->thumbnail }}" width="300px">
                                     </div>
 

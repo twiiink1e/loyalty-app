@@ -32,20 +32,22 @@
                                 class="icon-lg"></i>&emsp;Create redeem</button>
                     </a>
 
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success mt-3">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
                 </div>
 
-
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show mt-4"
+                        role="alert">
+                        <i class="mdi mdi-check-all label-icon"></i><strong>Success</strong> - {{ $message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                 <div class="card-body">
-                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                    <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Customer Name</th>
                                 <th>Customer Phone</th>
                                 <th>Reward</th>
                                 <th>Status</th>
@@ -57,6 +59,7 @@
                             @foreach ($redeems as $redeem)
                                 <tr>
                                     <td>{{ $redeem->id }}</td>
+                                    <td>{{ $redeem->customer->name }}</td>
                                     <td>{{ $redeem->customer->phone }}</td>
                                     <td>{{ $redeem->reward->name }}</td>
 
@@ -75,10 +78,10 @@
                                     <td>
                                         <form action="{{ route('redeems.destroy', $redeem->id) }}" method="POST">
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                            href="{{ route('redeems.show', $redeem->id) }}">
+                                                href="{{ route('redeems.show', $redeem->id) }}">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
-                                            
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit"
                                                 href="{{ route('redeems.edit', $redeem->id) }}">
                                                 <i class="fas fa-pencil-alt"></i>
