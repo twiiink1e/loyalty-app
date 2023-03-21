@@ -24,8 +24,8 @@
             </div>
 
             <div class="row mt-4">
-                @foreach ($announcements as $announcement)
-                    <div class="col-xs-12 col-sm-4">
+                @forelse ($announcements as $announcement)
+                    <div class="col-xs-12 col-sm-4" style="cursor: pointer">
                         <div class="card p-3 mb-3">
                             <img src="/thumbnails/{{ $announcement->thumbnail }}" height="350px">
                             <div class="card-block">
@@ -35,8 +35,16 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                    @empty
+   
+                    <img src="https://cdn.dribbble.com/users/1242216/screenshots/9326781/dribbble_shot_hd_-_3_4x.png" alt="" style="width: 900px; margin: auto">
+
+                @endforelse
             </div>
+
+           
+
+
     </section>
 
 @endsection

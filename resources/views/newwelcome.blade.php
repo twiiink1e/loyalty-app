@@ -91,9 +91,11 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href=" {{ route('profiles.index') }}"><i class='bx bx-award'></i>&emsp;Profile Point</a>
+
                                 <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a>
 
-                                <a class="dropdown-item" href=" #"><i class='bx bx-list-check'></i>&emsp; History</a>
+                                <a class="dropdown-item" href="{{ route('histories.index') }}"><i class='bx bx-list-check'></i>&emsp; History</a>
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"

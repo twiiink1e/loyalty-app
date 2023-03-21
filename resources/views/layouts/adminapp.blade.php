@@ -126,6 +126,13 @@
                         </div>
                     </div>
 
+                    <div class="dropdown d-none d-sm-inline-block">
+                        <a href="/">
+                            <button type="button" class="btn header-item">
+                                <i data-feather="home" class="icon-lg layout-mode-dark"></i>
+                            </button>
+                        </a>
+                    </div>
 
 
                     <div class="dropdown d-none d-sm-inline-block">

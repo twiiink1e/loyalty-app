@@ -50,7 +50,7 @@ class CompanyController extends Controller
 
         $image=$request->logo;
         $filename=time().'.'.$image->getClientOriginalExtension();
-        $request->logo->move('thumbnails',$filename);
+        $request->logo->move('logos',$filename);
         $company->logo=$filename;
 
 
@@ -102,30 +102,21 @@ class CompanyController extends Controller
      */
     public function update(Request $request)
     {
-        // $image=$request->logo;
-        // $filename=time().'.'.$image->getClientOriginalExtension();
-        // $request->logo->move('thumbnails',$filename);
-        // $company->logo=$filename;
+        $input = $request->all();
 
-        // dd($request->all());
+        if ($logo = $request->file('logo')) {
+            $destinationPath = 'logos/';
+            $coverImage = date('YmdHis') . "." . $logo->getClientOriginalExtension();
+            $logo->move($destinationPath, $coverImage);
+            $input['logo'] = "$coverImage";
+        }else{
+            unset($input['logo']);
+        }
 
         $company = Company::find(Auth::user()->company->id);
 
-        // $company->user_id=$request->user_id;
-        // $company->name=$request->name;
-        // $company->phone=$request->phone;
-        // $company->address=$request->address;
+        $company->update($input);
 
-        $company->update($request->all());
-
-        // $companyID = $company->id;
-
-        // Calculation::create([
-        //     'company_id' => $companyID,
-        //     'main' => 0 ,
-        // ]);
-
-    
         return redirect()->route('admin.home');
         
     }

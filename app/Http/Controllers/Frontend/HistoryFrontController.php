@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Announcement;
+use App\Models\Redeem;
 use Illuminate\Http\Request;
 
-class AnnouncementFrontController extends Controller
+use Illuminate\Support\Facades\Auth;
+
+class HistoryFrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,19 @@ class AnnouncementFrontController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::get();
-        return view('frontend.announcement', compact('announcements'));
+        $phone=Auth::user()->phone;
+
+        // dd($phone);
+
+        $redeems = Redeem::select()
+        ->where(function($query) use ($phone){
+            $query->whereHas('customer', function($query) use ($phone){
+                $query->where('phone', 'like', '%'.$phone.'%');
+            });
+        })
+        ->get();
+
+        return view('frontend.histories.index', compact('redeems'));
     }
 
     /**
@@ -83,36 +96,5 @@ class AnnouncementFrontController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function search(Request $request)
-    {
-
-        // dd($request->all());
-
-        $inputSearch = $request->input('inputSearch');
-
-        $announcements = Announcement::select()
-        
-        ->where(function($query) use ($inputSearch){
-           if ($inputSearch){
-            $query->where('topic', 'like', '%'.$inputSearch.'%');
-           }
-        }) 
-        ->orWhere(function($query) use ($inputSearch){
-            $query->whereHas('reward', function($query) use ($inputSearch){
-                $query->where('name', 'like', '%'.$inputSearch.'%');
-            });
-        })
-        ->orWhere(function($query) use ($inputSearch){
-            $query->whereHas('company', function($query) use ($inputSearch){
-                $query->where('name', 'like', '%'.$inputSearch.'%');
-            });
-        }) 
-
-        ->get();
-    
-        return view('frontend.announcement', compact('announcements'));
-        
     }
 }

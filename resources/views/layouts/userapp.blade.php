@@ -32,7 +32,16 @@
     <!-- colors -->
     <link href="assets/front/css/colors/default.css" rel="stylesheet" type="text/css" id="color-opt" />
 
+
     <link href="{{ asset('assets/front/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/front/table.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        {{-- Datatable --}}
+
+        <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
 
 </head>
 
@@ -75,7 +84,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ asset('/announcement') }}"
-                            class="nav-link {{ $currentRouteName === 'announcement' ? 'active' : '' }} one">Announcement</a>
+                            class="nav-link {{ $currentRouteName === 'announcements' ? 'active' : '' }} one">Announcement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faq">Faq</a>
@@ -97,9 +106,13 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href=" {{ route('profiles.index') }}"><i
+                                        class='bx bx-award'></i>&emsp;Profile Point</a>
+
                                 <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a>
 
-                                <a class="dropdown-item" href=" #"><i class='bx bx-list-check'></i>&emsp; History</a>
+                                <a class="dropdown-item" href="{{ route('histories.index') }}"><i
+                                        class='bx bx-list-check'></i>&emsp; History</a>
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -221,6 +234,11 @@
     {{-- Swiper JS --}}
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 
 </body>
 

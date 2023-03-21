@@ -14,7 +14,9 @@ use App\Http\Controllers\Backend\PointController;
 use App\Http\Controllers\Backend\RedeemController;
 use App\Http\Controllers\Backend\RewardController;
 use App\Http\Controllers\Frontend\AnnouncementFrontController;
+use App\Http\Controllers\Frontend\HistoryFrontController;
 use App\Http\Controllers\Frontend\HomeFrontController;
+use App\Http\Controllers\Frontend\PointFrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +52,10 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     
+    Route::resource('/profiles', PointFrontController::class);
 
+    Route::resource('/histories', HistoryFrontController::class);
+    
 });
   
 /*------------------------------------------

@@ -7,7 +7,7 @@
         </button>
     </a>
 
-    <div class="login-form py-4" style="margin-top: 100px">
+    <div class="login-form py-4" style="margin-top: 50px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -39,6 +39,19 @@
                                     <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                     value="{{ old('email') }}" required autocomplete="email" placeholder="Enter your email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                </div>
+                  
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" type="text"
+                                    class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                    value="{{ old('phone') }}" required autocomplete="phone" placeholder="Enter your number">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
