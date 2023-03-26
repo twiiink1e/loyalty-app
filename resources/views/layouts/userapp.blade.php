@@ -18,30 +18,28 @@
     <link rel="shortcut icon" href="images/favicon.ico" />
 
     <!-- Bootstrap css-->
-    <link href="assets/front/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/front/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Materialdesign icon-->
-    <link rel="stylesheet" href="assets/front/css/materialdesignicons.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/front/css/materialdesignicons.min.css') }}" type="text/css" />
 
     <!-- Swiper Slider css -->
-    <link rel="stylesheet" href="assets/front/css/swiper-bundle.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/front/css/swiper-bundle.min.css') }}" type="text/css" />
 
     <!-- Custom Css -->
-    <link href="assets/front/css/style.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/front/css/style.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- colors -->
-    <link href="assets/front/css/colors/default.css" rel="stylesheet" type="text/css" id="color-opt" />
+    <link href="{{ asset('assets/front/css/colors/default.css') }}" rel="stylesheet" type="text/css" id="color-opt" />
 
 
     <link href="{{ asset('assets/front/home.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/front/table.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/front/announcement.css') }}" rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        {{-- Datatable --}}
-
-        <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
 
 </head>
 
@@ -63,8 +61,8 @@
     <!-- START NAVBAR -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="assets/front/images/logo2.png" alt=""
-                    height="60"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('assets/front/images/logo2.png') }}"
+                    alt="" height="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -83,11 +81,11 @@
                             class="nav-link {{ $currentRouteName === 'welcome' ? 'active' : '' }} six">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ asset('/announcement') }}"
-                            class="nav-link {{ $currentRouteName === 'announcements' ? 'active' : '' }} one">Announcement</a>
+                        <a href="{{ asset('/announcements') }}"
+                            class="nav-link {{ $currentRouteName === 'frontannouncements.index' ? 'active' : '' }} one">Announcement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">Faq</a>
+                        <a class="nav-link" href="/#faq">Faq</a>
                     </li>
 
                     @guest
@@ -217,19 +215,19 @@
     </script>
 
     <!-- Bootstrap Bundale js -->
-    <script src="assets/front/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/front/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Swiper Slider js -->
-    <script src="assets/front/js/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/front/js/swiper-bundle.min.js') }}"></script>
 
     <!-- Contact Js -->
-    <script src="assets/front/js/contact.js"></script>
+    <script src="{{ asset('assets/front/js/contact.js') }}"></script>
 
     <!-- Index-init Js -->
-    <script src="assets/front/js/index.init.js"></script>
+    <script src="{{ asset('assets/front/js/index.init.js') }}"></script>
 
     <!-- App js -->
-    <script src="assets/front/js/app.js"></script>
+    <script src="{{ asset('assets/front/js/app.js') }}"></script>
 
     {{-- Swiper JS --}}
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
@@ -239,7 +237,6 @@
             $('#myTable').DataTable();
         });
     </script>
-
 </body>
 
 </html>

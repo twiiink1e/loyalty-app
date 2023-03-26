@@ -238,10 +238,16 @@ class RedeemController extends Controller
        
         $customer->save();
 
-        $redeem->delete();
+        if ($redeem->status === 'pending'){
+            $redeem->update(['status' => 'canceled']);
+            return redirect()->route('redeems.index');
+        } else {
+            $redeem->update(['status' => 'canceled']);
+            return redirect()->route('redeems.index');
+        }
         
         return redirect()->route('redeems.index')
-        ->with('success', 'Redeem deleted successfully.');
+        ->with('success', 'Redeem canceled successfully.');
     }
 
     public function updateStatus($id)

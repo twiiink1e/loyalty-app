@@ -24,8 +24,15 @@
                                     <tr class="table-row table-row--chris">
                                         <td class="table-row__td">
                                             <div class="table-row__img">
-                                                <img src="/logos/{{ $redeem->company->logo }}"
-                                                    class="img-fluid profile-image" style="max-height: 70px;">
+                                                @if (is_null($redeem->company->logo))
+                                                    <img src="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
+                                                        class="img-fluid profile-image" style="max-height: 70px;">
+                                                @else
+                                                    <img src="/logos/{{ $redeem->company->logo }}"
+                                                        class="img-fluid profile-image" style="max-height: 70px;">
+
+                                                @endif
+
                                             </div>
                                             <div class="table-row__info">
                                                 <p class="table-row__name">{{ $redeem->company->name }}</p>
@@ -40,12 +47,16 @@
                                         </td>
                                         <td data-column="Status" class="table-row__td">
                                             @if ($redeem->status == 'pending')
-                                                <p
-                                                    class="table-row__status status--yellow status">
+                                                <p class="table-row__status status--yellow status">
                                                     {{ $redeem->status }}</p>
-                                            @else
+                                            @elseif ($redeem->status == 'success')
                                                 <p class="table-row__status status--green status">
                                                     {{ $redeem->status }}</p>
+                                            
+                                            @else
+                                            <p class="table-row__status status--red status">
+                                                {{ $redeem->status }}</p>
+
                                             @endif
                                         </td>
                                         <td data-column="Date" class="table-row__td">

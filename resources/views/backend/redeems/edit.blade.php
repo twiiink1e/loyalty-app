@@ -48,9 +48,9 @@
 
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Customer</label>
-                                        <br>
-                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true"
-                                            required name="customer_id">
+                                        <select class="form-control" data-trigger name="customer_id"
+                                        id="choices-single-default"
+                                        placeholder="Choose customer" required>
                                             @foreach ($customers as $customer)
                                                 <option value="{{ $customer->id }}"
                                                     {{ $redeem->customer_id == $customer->id ? 'selected' : '' }}>
@@ -60,11 +60,10 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="example-text-input" class="form-label">Reward</label>
-                                        <br>
-                                        <select class="selectpicker" data-show-subtext="true" data-live-search="true"
-                                            required name="reward_id" required>
-                                            {{-- <option value="">Choose company</option> --}}
+                                        <label for="example-tel-input" class="form-label">Customer</label>
+                                        <select required class="form-control" data-trigger name="reward_id"
+                                        id="choices-single-default"
+                                        placeholder="Choose reward" >
                                             @foreach ($rewards as $reward)
                                                 <option value="{{ $reward->id }}"
                                                     {{ $redeem->reward_id == $reward->id ? 'selected' : '' }}>

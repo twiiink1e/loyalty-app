@@ -36,7 +36,9 @@ Route::get('/error', function () {
     return view('errors.deny');
 })->name('deny');
 
-Route::get('/announcement', [AnnouncementFrontController::class, 'index'])->name('announcements');
+Route::get('/announcements', [AnnouncementFrontController::class, 'index'])->name('frontannouncements.index');
+
+// Route::resource('/frontannouncements/index', AnnouncementFrontController::class);
 
 Route::get('/search', [AnnouncementFrontController::class, 'search'])->name('announcements.search');
 
@@ -56,6 +58,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     Route::resource('/histories', HistoryFrontController::class);
     
+    Route::get('/announcement/{id}', [AnnouncementFrontController::class, 'show'])->name('frontannouncements.show');
+    Route::post('/announcement/store', [AnnouncementFrontController::class, 'store'])->name('frontannouncements.store');
+
 });
   
 /*------------------------------------------

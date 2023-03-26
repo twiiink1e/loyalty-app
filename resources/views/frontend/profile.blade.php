@@ -5,13 +5,13 @@
         <div class="row justify-content-center">
             <div class="row">
                 <div class="col">
-                    <h2 class="row__title">Redeem History</h2>
+                    <h2 class="row__title">Profile Point</h2>
                 </div>
             </div>
 
             <div class="row">
                 {{-- @for ($i = 0; $i < 9; $i++) --}}
-                @foreach($points as $point)
+                @forelse($points as $point)
                     <div class="col-md-4 mt-4">
                         <div class="card1">
 
@@ -40,9 +40,9 @@
                                     <div class="round-div"><i class="fa fa-trophy dollar"></i></div>
 
                                 </div>
-                                <div class="d-flex flex-column">
+                                <div class="d-flex flex-column" >
                                     <span class="current-balance">Current Point</span>
-                                    <span class="amount"><span class="dollar-sign"></span>{{ $point->point }}</span>
+                                    <span class="amount"><span class="dollar-sign"></span>{{ $point->point }} pts</span>
                                 </div>
                             </div>
 
@@ -50,7 +50,12 @@
                         </div>
 
                     </div>
-                @endforeach
+
+                    @empty 
+
+                    <img src="https://www.itinerantnotes.com/blog-theme/images/empty.gif" alt="">
+
+                @endforelse
             </div>
 
     </section>

@@ -68,12 +68,18 @@
                                                 class="btn btn-success btn-sm btn-rounded waves-effect waves-light"
                                                 style="font-size:14px">{{ $redeem->status }}</a>
                                         </td>
-                                    @else
+                                    @elseif ($redeem->status == 'pending')
                                         <td><a href="{{ route('updateStatus', $redeem->id) }}"
                                                 class="btn btn-warning btn-sm btn-rounded waves-effect waves-light"
                                                 style="font-size:14px">{{ $redeem->status }}</a>
                                         </td>
+                                    @else
+                                        <td><a href=""
+                                                class="btn btn-danger btn-sm btn-rounded waves-effect waves-light"
+                                                style="font-size:14px">{{ $redeem->status }}</a>
+                                        </td>
                                     @endif
+
 
                                     <td>
                                         <form action="{{ route('redeems.destroy', $redeem->id) }}" method="POST">
@@ -90,11 +96,16 @@
                                             @csrf
                                             @method('DELETE')
 
+                                            @if ($redeem->status == 'canceled')
+
+                                            @else
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button type="submit"
                                                 class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
                                                 data-toggle="tooltip" title='Delete'><i
-                                                    class='fas fa-trash-alt'></i></button>
+                                                    class='fas fas fa-times'></i></button>
+
+                                            @endif
                                         </form>
                                     </td>
                                 </tr>

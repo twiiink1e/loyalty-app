@@ -69,10 +69,10 @@
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/announcement">Announcement</a>
+                        <a class="nav-link" href="/announcements">Announcement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">Faq</a>
+                        <a class="nav-link" href="/#faq">Faq</a>
                     </li>
 
                     @guest
@@ -194,7 +194,7 @@
                                 @foreach ($announcements as $announcement)
                                     <div class="col-xs-12 col-sm-4">
                                         <div class="cardhome">
-                                            <a class="img-card" href="#">
+                                            <a class="img-card" href="{{ route('frontannouncements.show', $announcement->id)}}">
                                                 <img src="/thumbnails/{{ $announcement->thumbnail }}">
                                             </a>
                                             <div class="card-content">
