@@ -24,8 +24,9 @@ class AnnouncementFrontController extends Controller
     public function index()
     {
         $announcements = Announcement::get();
+        $companies = Company::get();
 
-        return view('frontend.announcements.index', compact('announcements'));
+        return view('frontend.announcements.index', compact('announcements', 'companies'));
     }
 
     /**
@@ -52,12 +53,20 @@ class AnnouncementFrontController extends Controller
             // 'status' => 'required',
         ]);
 
+        $phone=Auth::user()->phone;
+
         $reward = Reward::where('id', $request->reward_id)
             ->first();
 
         $credit = $reward->point;
 
-        $customer = Point::where('customer_id', $request->customer_id)
+        $customer = Point::select()
+            ->where(function($query) use ($phone){
+                $query->whereHas('customer', function($query) use ($phone){
+                    $query->where('phone', 'like', '%'.$phone.'%');
+                });
+            })
+
             ->where('company_id', $request->company_id)
             ->first();
         
@@ -83,7 +92,7 @@ class AnnouncementFrontController extends Controller
             $data['customers'] = $customers;
             $data['companies'] = $companies;
 
-            return  redirect()->back()->with('success', 'Sorry, not enough point');
+            return  redirect()->back()->with('success', 'Sorry, you do not have enough point');
 
 
         }
@@ -179,29 +188,40 @@ class AnnouncementFrontController extends Controller
 
         // dd($request->all());
 
+        $companies = Company::get();
+
+        $inputSelect = $request->input('inputSelect');
+
+        $data['inputSelect'] = $inputSelect;
+
+        // dd($inputSelect);
+
         $inputSearch = $request->input('inputSearch');
 
         $announcements = Announcement::select()
-        
+
+        ->where(function($query) use ($inputSelect){
+            if ($inputSelect){
+             $query->where('company_id', $inputSelect);
+            }
+         })  
+
+
         ->where(function($query) use ($inputSearch){
-           if ($inputSearch){
-            $query->where('topic', 'like', '%'.$inputSearch.'%');
-           }
-        }) 
-        ->orWhere(function($query) use ($inputSearch){
             $query->whereHas('reward', function($query) use ($inputSearch){
                 $query->where('name', 'like', '%'.$inputSearch.'%');
             });
         })
+
         ->orWhere(function($query) use ($inputSearch){
-            $query->whereHas('company', function($query) use ($inputSearch){
-                $query->where('name', 'like', '%'.$inputSearch.'%');
-            });
+           if ($inputSearch){
+            $query->where('topic', 'like', '%'.$inputSearch.'%');
+           }
         }) 
 
         ->get();
     
-        return view('frontend.announcements.index', compact('announcements'));
+        return view('frontend.announcements.index', compact('announcements', 'companies'), $data);
         
     }
 }

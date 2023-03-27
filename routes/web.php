@@ -54,7 +54,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     
-    Route::resource('/profiles', PointFrontController::class);
+    Route::resource('/pointfront', PointFrontController::class);
 
     Route::resource('/histories', HistoryFrontController::class);
     

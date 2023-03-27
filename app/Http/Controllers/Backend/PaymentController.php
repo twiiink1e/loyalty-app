@@ -35,8 +35,6 @@ class PaymentController extends Controller
 
             ->get();
 
-        // dd($payments);
-
         return view('backend.payments.index', compact('payments'));
     }
 

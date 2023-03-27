@@ -11,8 +11,9 @@
     position: absolute;
     top: 0;
     right: -180px;
-    background: #b4b4b428;
+    background: #6fbfc328;
     transform: rotate(45deg);
+    /* background-image: url(""); */
 }
 
 .login-form .card .card-header i {

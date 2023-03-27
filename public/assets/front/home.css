@@ -95,7 +95,7 @@
         background: #3f8efc;
         color: white;
         /* font: 'trebuchet ms', trebuchet; */
-        padding: 10px 20px;
+        padding: 13px 20px;
         border-radius: 0 5px 5px 0;
         -moz-border-radius: 0 5px 5px 0;
         -webkit-border-radius: 0 5px 5px 0;
@@ -112,7 +112,7 @@
         -webkit-border-radius: 5px 0 0 5px;
         -o-border-radius: 5px 0 0 5px;
         border: 0 none;
-        width: 300px;
+        width: 200px;
     }
     /* point  */
     
@@ -200,4 +200,63 @@
     
     .flex-column {
         margin-right: 140px;
+    }
+    /* ///////////////////// input //////////////////////////// */
+    
+    .select2-container--default .select2-selection--single,
+    .select2-selection .select2-selection--single {
+        margin-top: -2px;
+        margin-right: 10px;
+        /* border: 1px solid #d2d6de; */
+        padding: 10px 12px;
+        height: 34px;
+        border-radius: 5px;
+    }
+    
+    .select2-container--default .select2-selection--single {
+        background-color: #eee;
+        /* border: 1px solid #aaa; */
+        border-radius: 5px
+    }
+    
+    .select2-container .select2-selection--single {
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 28px;
+        user-select: none;
+        -webkit-user-select: none
+    }
+    
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-right: 10px;
+    }
+    
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+        padding-right: 0;
+        height: auto;
+        margin-top: -3px
+    }
+    
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #444;
+        line-height: 28px
+    }
+    
+    .select2-container--default .select2-selection--single,
+    .select2-selection .select2-selection--single {
+        border: 0px solid #d2d6de;
+        border-radius: 5px !important;
+        padding: 10px 12px;
+        height: 42px !important
+    }
+    
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 26px;
+        position: absolute;
+        top: 6px !important;
+        right: 1px;
+        width: 20px;
+        margin-right: 10px;
     }

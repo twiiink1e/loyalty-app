@@ -12,8 +12,8 @@
             <div class="row">
                 {{-- @for ($i = 0; $i < 9; $i++) --}}
                 @forelse($points as $point)
-                    <div class="col-md-4 mt-4">
-                        <div class="card1">
+                    <a class="col-md-4 mt-4" href="{{ route('pointfront.show', $point->id) }}">
+                        <div class="card1" >
 
                             <div class="top-container">
 
@@ -49,7 +49,7 @@
 
                         </div>
 
-                    </div>
+                    </a>
 
                     @empty 
 
