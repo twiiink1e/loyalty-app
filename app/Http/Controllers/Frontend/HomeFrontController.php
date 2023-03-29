@@ -15,7 +15,7 @@ class HomeFrontController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::orderBy('id', 'DESC')->take(6)->get();
+        $announcements = Announcement::orderBy('id', 'DESC')->get();
 
         return view('newwelcome', compact('announcements'));
     }

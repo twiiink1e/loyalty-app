@@ -23,7 +23,7 @@ class AnnouncementFrontController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::get();
+        $announcements = Announcement::orderBy('id', 'DESC')->get();
         $companies = Company::get();
 
         return view('frontend.announcements.index', compact('announcements', 'companies'));
@@ -217,7 +217,13 @@ class AnnouncementFrontController extends Controller
            if ($inputSearch){
             $query->where('topic', 'like', '%'.$inputSearch.'%');
            }
-        }) 
+        })
+        
+        // ->orWhere(function($query) use ($inputSearch){
+        //     $query->whereHas('company', function($query) use ($inputSearch){
+        //         $query->where('name', 'like', '%'.$inputSearch.'%');
+        //     });
+        // })
 
         ->get();
     

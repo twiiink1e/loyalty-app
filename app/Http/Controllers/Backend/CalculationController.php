@@ -23,9 +23,6 @@ class CalculationController extends Controller
         $company= $user->company;
 
         $payments= $company ? $company->payments()->get() : [];
-        $calculations= $company ? $company->calculation->get() : [];
-        
-        // dd($calculations->main);
 
         $id=Auth::user()->id;
 
@@ -33,7 +30,7 @@ class CalculationController extends Controller
         ->where('user_id', '=', $id)
         ->get();
 
-        return view('backend.payments.index', compact('calculations', 'payments', 'companies'));
+        return view('backend.payments.index', compact('payments', 'companies'));
     }
 
     /**

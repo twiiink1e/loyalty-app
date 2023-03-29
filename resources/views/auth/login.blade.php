@@ -13,8 +13,7 @@
                     <div class="card shadow-sm">
                         <span class="shape"></span>
                         <div class="card-header text-center bg-transparent">
-                        <img src="{{ asset('assets/images/logo2.png') }}" alt="" style="margin-right: 50px">
-                            {{-- <h2>Admin Login</h2> --}}
+                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" style="margin-right: 30px">
                         </div>
                         <div class="card-body py-4">
                             <form method="POST" action="{{ route('login') }}">
@@ -24,7 +23,7 @@
                                     </div>
                                 @elseif (session('error'))
                                     <div class="alert alert-danger" role="alert">
-
+                                        <span><i class='bx bxs-error'></i>Wrong email or password. Please try again</span>
                                     </div>
                                 @endif
 
@@ -53,19 +52,24 @@
                                 @enderror
 
 
-                                <div class="d-flex justify-content-center" style="margin-top: -20px">
+                                <div class="d-flex justify-content-center" style="margin-top: -25px">
 
                                     <div class="form-group">
                                         @if (Route::has('password.request'))
-                                            <span class="forgot-pass"><a href="{{ route('password.request') }}" class="login_link">Forgot
+                                            <span class="forgot-pass"><a href="{{ route('password.request') }}"
+                                                    class="login_link">Forgot
                                                     Password</a></span>
                                         @endif
+                                        <span class="login_link">/</span>
                                     </div>
+     
+
                                     <div class="form-group">
-                                        <span><a href="{{ route('register') }}" class="login_link">Register</a></span>
+                                        <span><a href="" class="login_link" data-toggle="modal"
+                                                data-target="#exampleModalCenter">Register</a></span>
                                     </div>
                                 </div>
-     
+
                                 <div class="form-group">
                                     <button type="submit" class="btn">Log In</button>
                                 </div>
@@ -76,4 +80,39 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Register as</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding: 50px">
+                    <a href="{{ route('register') }}">
+                        <button type="button" class="btn btn-outline-primary btn-block">MERCHANT</button>
+                    </a>
+                    <p class="text-center mt-3">OR</p>
+                    <a href="{{ route('registerCus') }}">
+                        <button type="button" class="btn btn-outline-primary btn-block">CUSTOMER</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // show the alert
+            $(".alert").fadeTo(2200, 800).slideUp(800, function() {
+                $(".alert").alert('close');
+            });
+        });
+    </script>
 @endsection

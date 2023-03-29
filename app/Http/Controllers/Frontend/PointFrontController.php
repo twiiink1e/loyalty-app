@@ -79,7 +79,7 @@ class PointFrontController extends Controller
 
         // dd($cal);
 
-        $payments = Payment::select()
+        $payments = Payment::orderBy('id', 'DESC')->select()
         ->where('company_id', '=', $company )
 
         ->where(function($query) use ($phone){
@@ -90,7 +90,7 @@ class PointFrontController extends Controller
 
         ->get();
 
-        $redeems = Redeem::select()
+        $redeems = Redeem::orderBy('id', 'DESC')->select()
         ->where('company_id', '=', $company )
 
         ->where(function($query) use ($phone){

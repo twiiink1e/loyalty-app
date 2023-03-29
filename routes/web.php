@@ -42,7 +42,10 @@ Route::get('/announcements', [AnnouncementFrontController::class, 'index'])->nam
 
 Route::get('/search', [AnnouncementFrontController::class, 'search'])->name('announcements.search');
 
-  
+Route::get('/registerCus', function () {
+    return view('auth.registerCus');
+})->name('registerCus');
+
 Auth::routes();
   
 /*------------------------------------------

@@ -5,9 +5,7 @@
     <meta charset="utf-8" />
     <title>Loyalty App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Bootstrap v5.0.2 Landing Page Template" />
-    <meta name="keywords" content="bootstrap v5.0.2, premium, marketing, multipurpose" />
-    <meta content="Pichforest" name="author" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
 
@@ -34,6 +32,11 @@
     <link href="assets/front/css/colors/default.css" rel="stylesheet" type="text/css" id="color-opt" />
 
     <link href="{{ asset('assets/front/home.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('assets/corousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/corousel/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/corousel/css/style.css') }}">
 
 
 </head>
@@ -133,10 +136,10 @@
                                 our needs for our clients and the Rewards Program that we offer to our clients.</p>
                             {{-- <p class="text-black-50 fs-17 pt-4">Look up for your loyalty point to redeem available reward in our store.</p> --}}
                             <div class="text-center subscribe-form mt-5">
-                                <form action="#">
+                                <form action="{{ route('announcements.search') }}" method="get">
                                     <input type="text" class="control-form" id="inputemail"
-                                        placeholder="Enter your phone number">
-                                    <button type="submit" class="btn btn-primary">Get started</button>
+                                        placeholder="Find your favorite store" name="inputSelect">
+                                    <button type="submit" class="btn btn-primary">Search</button>
                                 </form>
                             </div>
                         </div>
@@ -186,7 +189,7 @@
             </div>
             <!--end row-->
             <div class="row">
-                <div class="container">
+                {{-- <div class="container">
                     <div class="blank"></div>
                     <div class="row justify-content-center">
                         <div class="content">
@@ -216,7 +219,42 @@
                             </div>
                         </div>
                     </div>
+                </div> --}}
+
+                <div class="container" style="margin-top: 50px">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="featured-carousel owl-carousel">
+                            @foreach ($announcements as $announcement)
+                                <div class="item">
+                                    <div class="blog-entry">
+                                        <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('/thumbnails/{{ $announcement->thumbnail }}');">
+                                            <div class="meta-date text-center p-2">
+                                                <span class="day">{{\Carbon\Carbon::parse($announcement->created_at)->format('d')}}</span>
+                                                <span class="mos">{{\Carbon\Carbon::parse($announcement->created_at)->format('M')}}</span>
+                                                <span class="yr">{{\Carbon\Carbon::parse($announcement->created_at)->format('Y')}}</span>
+                                            </div>
+                                        </a>
+                                        <div class="text border border-top-0 p-4">
+                                            <p class="meta2 mt-1 mb-1">
+                                                <a href="#" class="mr-2">{{ $announcement->company->name }}</a>
+                                            </p>
+                                            <h3 class="heading"><a href="#">{{ $announcement->topic }}</a></h3>
+                                            <p>{{ $announcement->description }}</p>
+                                            <div class="d-flex align-items-center mt-4">
+                                                <p class="mb-0"><a href="{{ route('frontannouncements.show', $announcement->id)}}" class="btn btn-primary">Read More &nbsp; <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <!--end row-->
         </div>
@@ -445,6 +483,12 @@
 
     <!-- App js -->
     <script src="assets/front/js/app.js"></script>
+
+    <script src="{{ asset('assets/corousel/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/corousel/js/popper.js') }}"></script>
+    <script src="{{ asset('assets/corousel/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/corousel/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/corousel/js/main.j') }}s"></script>
 
 </body>
 

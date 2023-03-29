@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="row">
                 <div class="col">
-                    <h1 class style="color: black;line-height: 75px;">Announcement List</h1>
+                    <h1 class style="color: black;line-height: 75px; padding-bottom: 25px">Announcement List</h1>
                 </div>
 
                 <div class="col">
@@ -72,10 +72,10 @@
             <div class="row">
                 @forelse ($announcements as $announcement)
                     <div class="col-xs-12 col-sm-4 p-3" style="cursor: pointer">
-                        <a class="card p-3 mb-2" style="color: black"
+                        <a class="card p-3 mb-2" style="color: black;"
                             href="{{ route('frontannouncements.show', $announcement->id) }}">
                             <img src="/thumbnails/{{ $announcement->thumbnail }}" height="350px">
-                            <div class="card-block">
+                            <div class="card-block" style="padding: 20px">
                                 <h4 class="card-title mt-3">{{ $announcement->topic }}</h4>
                                 <p class="card-text">{{ $announcement->description }}</p>
                                 <p class="card-text"><small class="text-muted">{{ $announcement->company->name }}</small>
