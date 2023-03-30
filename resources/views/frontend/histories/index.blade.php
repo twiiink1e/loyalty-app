@@ -13,6 +13,7 @@
                         <table class="table">
                             <thead class="table__thead">
                                 <tr>
+                                    <th class="table__th">Reference</th>
                                     <th class="table__th">Company Name</th>
                                     <th class="table__th">reward</th>
                                     <th class="table__th">Status</th>
@@ -22,6 +23,11 @@
                             <tbody class="table__tbody">
                                 @foreach ($redeems as $redeem)
                                     <tr class="table-row table-row--chris">
+                                        <td data-column="reward" class="table-row__td">
+                                            <div class="">
+                                                <p class="table-row__reward">#{{ $redeem->code }}</p>
+                                            </div>
+                                        </td>
                                         <td class="table-row__td">
                                             <div class="table-row__img">
                                                 @if (is_null($redeem->company->logo))

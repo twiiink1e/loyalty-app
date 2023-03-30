@@ -105,7 +105,16 @@ class RedeemController extends Controller
 
         $customer->save();
 
-        Redeem::create($request->all());
+        $input = [
+            'company_id' => $request->company_id,
+            'customer_id' => $request->customer_id,
+            'reward_id' => $request->reward_id,
+            'code' => $this->generateUniqueCode()
+        ];
+
+        // dd($input);
+
+        Redeem::create($input);
 
         return redirect()->route('redeems.index')
             ->with('success', 'Redeem created successfully.');
@@ -265,5 +274,14 @@ class RedeemController extends Controller
         }
         return redirect()->route('redeems.index')
         ->with('success', 'Status updated successfully.');
+    }
+
+    public function generateUniqueCode()
+    {
+        do {
+            $code = random_int(10000, 99999);
+        } while (Redeem::where("code", "=", $code)->first());
+  
+        return $code;
     }
 }

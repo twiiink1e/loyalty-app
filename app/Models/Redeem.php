@@ -16,6 +16,7 @@ class Redeem extends Model
         'reward_id',
         'company_id',
         'status',
+        'code',
     ];
 
     public function customer()

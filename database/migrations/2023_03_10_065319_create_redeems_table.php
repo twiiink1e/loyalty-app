@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('reward_id');
             $table->unsignedBigInteger('company_id');
+            $table->integer('code');
             $table->string('status')->default('pending');
 
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');

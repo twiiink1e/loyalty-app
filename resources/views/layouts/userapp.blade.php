@@ -36,6 +36,7 @@
     <link href="{{ asset('assets/front/home.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/front/table.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/front/announcement.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/front/point.css') }}" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

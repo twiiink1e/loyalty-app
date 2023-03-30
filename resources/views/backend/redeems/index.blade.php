@@ -46,7 +46,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Reference No</th>
                                 <th>Customer Name</th>
                                 <th>Customer Phone</th>
                                 <th>Reward</th>
@@ -58,7 +58,7 @@
                         <tbody>
                             @foreach ($redeems as $redeem)
                                 <tr>
-                                    <td>{{ $redeem->id }}</td>
+                                    <td>{{ $redeem->code }}</td>
                                     <td>{{ $redeem->customer->name }}</td>
                                     <td>{{ $redeem->customer->phone }}</td>
                                     <td>{{ $redeem->reward->name }}</td>

@@ -8,30 +8,27 @@
 
     <section class="section" style="margin-top: 20px; min-height: 1000px">
         <div class="row justify-content-center">
-            <div class="row">
-                <div class="col">
-                    <h1 class style="color: black;line-height: 75px; padding-bottom: 25px">Announcement List</h1>
+            <div class="row" style="background-color: #F8F8F8; position: sticky;top: 60px; z-index: 999; ">
+                <div class="col" style="top:20px">
+                    <h1 class style="color: black;line-height: 85px; padding-bottom: 35px;">Announcement List</h1>
                 </div>
 
-                <div class="col">
+                <div class="col" style="top:20px">
                     <div class="search-bar">
                         <form id="searchthis" action="{{ route('announcements.search') }}" style="display:inline;"
                             method="get">
                             <span>
-                                <select class="form-control select2" style="width: 200px;" tabindex="-1"
-                                    aria-hidden="true" name="inputSelect">
+                                <select class="form-control select2" style="width: 200px;" tabindex="-1" aria-hidden="true"
+                                    name="inputSelect">
                                     <option value="">Search Company</option>
 
                                     @foreach ($companies as $company)
-
-                                    @if ($company->name == '...')
-                                       
-                                    @else
-                                    <option value="{{ $company->id }}"
-                                        {{ old('inputSelect', request()->get('inputSelect')) == $company->id ? 'selected' : '' }}>
-                                        {{ $company->name }}</option>
-                                    @endif
-
+                                        @if ($company->name == '...')
+                                        @else
+                                            <option value="{{ $company->id }}"
+                                                {{ old('inputSelect', request()->get('inputSelect')) == $company->id ? 'selected' : '' }}>
+                                                {{ $company->name }}</option>
+                                        @endif
                                     @endforeach
 
                                 </select>
@@ -69,20 +66,56 @@
                 @endif
             </div>
 
-            <div class="row">
+            <div class="announcement-mobile">
+                <div class="row">
+                    @forelse ($announcements as $announcement)
+                        <div class="col-xs-12 col-sm-4 p-3" style="cursor: pointer">
+                            <a class="card p-3 mb-2" style="color: black;"
+                                href="{{ route('frontannouncements.show', $announcement->id) }}">
+                                <img src="/thumbnails/{{ $announcement->thumbnail }}" height="350px">
+                                <div class="card-block" style="padding: 20px">
+                                    <h4 class="card-title mt-3">{{ $announcement->topic }}</h4>
+                                    <p class="card-text">{{ $announcement->description }}</p>
+                                    <p class="card-text"><small
+                                            class="text-muted">{{ $announcement->company->name }}</small>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    @empty
+
+                        <img src="https://cdn.dribbble.com/users/1242216/screenshots/9326781/dribbble_shot_hd_-_3_4x.png"
+                            alt="" style="width: 900px; margin: auto; padding-top: 35px">
+                    @endforelse
+                </div>
+            </div>
+
+            <div class="announcement-web">
                 @forelse ($announcements as $announcement)
-                    <div class="col-xs-12 col-sm-4 p-3" style="cursor: pointer">
-                        <a class="card p-3 mb-2" style="color: black;"
-                            href="{{ route('frontannouncements.show', $announcement->id) }}">
-                            <img src="/thumbnails/{{ $announcement->thumbnail }}" height="350px">
-                            <div class="card-block" style="padding: 20px">
-                                <h4 class="card-title mt-3">{{ $announcement->topic }}</h4>
-                                <p class="card-text">{{ $announcement->description }}</p>
-                                <p class="card-text"><small class="text-muted">{{ $announcement->company->name }}</small>
-                                </p>
+                    <a href="{{ route('frontannouncements.show', $announcement->id) }}" class="projcard-container">
+
+                        <div class="projcard projcard-blue">
+                            <div class="projcard-innerbox">
+                                <img class="projcard-img" src="/thumbnails/{{ $announcement->thumbnail }}" />
+                                <div class="projcard-textbox">
+                                    <div class="projcard-title">{{ $announcement->company->name }}</div>
+                                    <div class="projcard-subtitle">{{ $announcement->topic }}</div>
+                                    <div class="projcard-bar"></div>
+                                    <div class="projcard-subtitle">Reward: {{ $announcement->reward->name }}</div>
+                                    <div class="projcard-description">{{ $announcement->description }}</div>
+                                    <div class="projcard-tagbox">
+                                        <span class="">
+                                            <button class="btn btn-primary" style="border-radius: 3rem" type="button">View
+                                            </button>
+                                        </span>
+                                        {{-- <span class="projcard-tag">CSS</span> --}}
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+
+                    </a>
+
                 @empty
 
                     <img src="https://cdn.dribbble.com/users/1242216/screenshots/9326781/dribbble_shot_hd_-_3_4x.png"
@@ -99,6 +132,15 @@
         $(document).ready(function() {
             $('.select2').select2({
                 closeOnSelect: false
+            });
+        });
+    </script>
+
+    <script>
+        // This adds some nice ellipsis to the description:
+        document.querySelectorAll(".projcard-description").forEach(function(box) {
+            $clamp(box, {
+                clamp: 6
             });
         });
     </script>

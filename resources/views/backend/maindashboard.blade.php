@@ -131,6 +131,7 @@
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col -->
+        
     </div><!-- end row -->
 
     <div class="row">
@@ -141,8 +142,8 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="my-0"><i class="mdi mdi-office-building-outline me-3"></i>About Company<a
-                                            href="{{ route('companies.edit', $company->id) }}"
+                                    <h5 class="my-0"><i class="mdi mdi-office-building-outline me-3"></i>About Company
+                                        <a href="{{ route('companies.edit', $company->id) }}"
                                             class="card-text float-end">Edit</a></h5>
                                 </div>
                             </div>
@@ -179,10 +180,10 @@
                             <div class="card-header bg-transparent">
                                 <h5 class="my-0">
                                     <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                    <button type="button" class="btn btn-light btn-md waves-effect float-end text-primary"
+                                    <a class="card-text float-end" style="cursor: pointer"
                                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                         Edit
-                                    </button>
+                                    </a>
                                 </h5>
 
 
@@ -239,11 +240,10 @@
                             <div class="card-header bg-transparent">
                                 <h5 class="my-0">
                                     <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                    <button type="button"
-                                        class="btn btn-light btn-md waves-effect float-end text-primary"
-                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <a class="card-text float-end"
+                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor: pointer">
                                         Create
-                                    </button>
+                                    </a>
                                 </h5>
 
 

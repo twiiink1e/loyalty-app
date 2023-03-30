@@ -96,7 +96,7 @@
 
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i class='bx bx-award'></i>&emsp;Profile Point</a>
 
-                                <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a>
+                                {{-- <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a> --}}
 
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i class='bx bx-list-check'></i>&emsp; History</a>
 
@@ -138,7 +138,7 @@
                             <div class="text-center subscribe-form mt-5">
                                 <form action="{{ route('announcements.search') }}" method="get">
                                     <input type="text" class="control-form" id="inputemail"
-                                        placeholder="Find your favorite store" name="inputSelect">
+                                    placeholder="Find your favorite store" name="inputSearch">
                                     <button type="submit" class="btn btn-primary">Search</button>
                                 </form>
                             </div>

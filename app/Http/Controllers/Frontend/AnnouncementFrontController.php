@@ -101,7 +101,16 @@ class AnnouncementFrontController extends Controller
 
         $customer->save();
 
-        Redeem::create($request->all());
+        $input = [
+            'company_id' => $request->company_id,
+            'customer_id' => $request->customer_id,
+            'reward_id' => $request->reward_id,
+            'code' => $this->generateUniqueCode()
+        ];
+
+        // dd($input);
+
+        Redeem::create($input);
 
         return redirect()->route('histories.index')
             ->with('success', 'Redeem created successfully.');
@@ -126,7 +135,7 @@ class AnnouncementFrontController extends Controller
 
         $phone=Auth::user()->phone;
 
-        $point = Point::select('point')
+        $points = Point::select()
         ->where('company_id', '=', $company)
 
         ->where(function($query) use ($phone){
@@ -135,7 +144,7 @@ class AnnouncementFrontController extends Controller
             });
         })
 
-        ->first();
+        ->get();
 
         $customer=Customer::select()
         ->where('phone', $phone)
@@ -145,7 +154,7 @@ class AnnouncementFrontController extends Controller
 
         // dd($point->point);
 
-        return view('frontend.announcements.show', compact('announcement', 'point', 'customer'));
+        return view('frontend.announcements.show', compact('announcement', 'points', 'customer'));
 
     }
 
@@ -229,5 +238,14 @@ class AnnouncementFrontController extends Controller
     
         return view('frontend.announcements.index', compact('announcements', 'companies'), $data);
         
+    }
+
+    public function generateUniqueCode()
+    {
+        do {
+            $code = random_int(10000, 99999);
+        } while (Redeem::where("code", "=", $code)->first());
+  
+        return $code;
     }
 }

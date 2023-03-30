@@ -1,0 +1,87 @@
+    /* ///////////////// point ////////////////////////  */
+    
+    .card1 {
+        background-color: #fff;
+        /* width: 350px; */
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+        padding: 2rem !important;
+        transition: .5s;
+        cursor: pointer;
+    }
+    
+    .top-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .profile-image {
+        border-radius: 10px;
+        /* border: 2px solid #1A374D; */
+    }
+    
+    .name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #272727;
+        position: relative;
+        top: 8px;
+    }
+    
+    .middle-container {
+        background-color: #eee;
+        border-radius: 12px;
+    }
+    
+    .dollar-div {
+        background-color: #1A374D;
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    .round-div {
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .dollar {
+        font-size: 16px !important;
+        color: #1A374D !important;
+        font-weight: bold !important;
+    }
+    
+    .current-balance {
+        font-size: 15px;
+        color: #272727;
+        font-weight: bold;
+    }
+    
+    .amount {
+        color: #1A374D;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .dollar-sign {
+        font-size: 16px;
+        color: #272727;
+        font-weight: bold;
+    }
+    
+    .card1:hover {
+        -ms-transform: scale(1.05);
+        /* IE 9 */
+        -webkit-transform: scale(1.05);
+        /* Safari 3-8 */
+        transform: scale(1.05);
+    }
+    
+    .flex-column {
+        margin-right: 140px;
+    }

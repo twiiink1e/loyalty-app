@@ -51,7 +51,7 @@
                                 <th style="width: 100px">Thumbnail</th>
                                 <th>Reward</th>
                                 <th>Topic</th>
-                                <th style="width: 350px">Description</th>
+                                {{-- <th style="width: 350px">Description</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -63,7 +63,7 @@
                                     <td><img src="/thumbnails/{{ $announcement->thumbnail }}" width="100px"></td>
                                     <td>{{ $announcement->reward->name }}</td>
                                     <td>{{ $announcement->topic }}</td>
-                                    <td>{{ $announcement->description }}</td>
+                                    {{-- <td>{{ $announcement->description }}</td> --}}
 
                                     <td>
                                         <form action="{{ route('announcements.destroy', $announcement->id) }}"
