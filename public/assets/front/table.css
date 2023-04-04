@@ -22,7 +22,7 @@ body {
     font-size: 22px;
     margin: 0;
     float: right;
-    background-color: #fff;
+    /* background-color: #fff; */
     padding-left: 20px;
     padding-right: 20px;
     /* text-decoration: underline; */
@@ -42,7 +42,7 @@ body {
     font-weight: 800;
     font-size: 16px;
     text-transform: uppercase;
-    cursor: pointer;
+    /* cursor: pointer; */
     border-bottom: 1px solid #53646f6b !important;
     padding: 25px 25px !important;
     background-color: #fff !important;
@@ -87,11 +87,6 @@ body {
     background-repeat: no-repeat;
     vertical-align: middle;
 }
-
-
-/* .table-row--chris .table-row__img {
-    background-image: url('https://images.pexels.com/photos/428333/pexels-photo-428333.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb');
-} */
 
 .table-row__info {
     display: inline-block;
@@ -261,4 +256,18 @@ body {
     .table-row {
         width: 100%;
     }
+}
+
+.pagination {
+    margin-left: 470px !important;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    /* right: 0.5em; */
+    margin-top: -50px !important;
+    content: "\02C7" !important;
 }

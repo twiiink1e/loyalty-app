@@ -240,9 +240,11 @@
                                                 <a href="#" class="mr-2">{{ $announcement->company->name }}</a>
                                             </p>
                                             <h3 class="heading"><a href="#">{{ $announcement->topic }}</a></h3>
-                                            <p>{{ $announcement->description }}</p>
+                                            <div class="desc">
+                                                <p>{{ $announcement->description }}</p>
+                                            </div>
                                             <div class="d-flex align-items-center mt-4">
-                                                <p class="mb-0"><a href="{{ route('frontannouncements.show', $announcement->id)}}" class="btn btn-primary">Read More &nbsp; <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                                <h4 class="mb-0"><a href="{{ route('frontannouncements.show', $announcement->id)}}" class="btn btn-primary">Read More &nbsp; <span class="ion-ios-arrow-round-forward"></span></a></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -489,6 +491,16 @@
     <script src="{{ asset('assets/corousel/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/corousel/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/corousel/js/main.j') }}s"></script>
+
+    <script>
+        $('.desc p').text(function(_, txt) {
+            if (txt.length > 110) {
+                txt = txt.substr(0, 110) + "...";
+                $(this).parent().append("");
+            }
+            $(this).html(txt)
+        });
+    </script>
 
 </body>
 

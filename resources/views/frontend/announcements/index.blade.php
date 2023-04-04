@@ -6,11 +6,11 @@
 
 @section('content')
 
-    <section class="section" style="margin-top: 20px; min-height: 1000px">
+    <section class="section" style=" min-height: 1000px">
         <div class="row justify-content-center">
-            <div class="row" style="background-color: #F8F8F8; position: sticky;top: 60px; z-index: 999; ">
+            <div class="row" style="background-color: #F8F8F8; position: sticky;top: 60px; z-index: 999; opacity: 96%; box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;">
                 <div class="col" style="top:20px">
-                    <h1 class style="color: black;line-height: 85px; padding-bottom: 35px;">Announcement List</h1>
+                    <h1 class style="color: black;line-height: 85px; padding-bottom: 20px;">Announcement List</h1>
                 </div>
 
                 <div class="col" style="top:20px">
@@ -90,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="announcement-web">
+            <div class="announcement-web" style="margin-top: 30px">
                 @forelse ($announcements as $announcement)
                     <a href="{{ route('frontannouncements.show', $announcement->id) }}" class="projcard-container">
 

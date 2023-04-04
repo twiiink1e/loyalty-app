@@ -390,6 +390,9 @@
         .announcement-mobile {
             display: none;
         }
+        .point-mobile {
+            display: none;
+        }
     }
     
     @media all and (min-width: 320px) and (max-width: 780px) {
@@ -399,4 +402,17 @@
         .search-bar {
             display: none;
         }
+        .point-web {
+            display: none;
+        }
+    }
+    
+    .navbar .navbar-nav .nav-item .nav-link:hover,
+    .navbar .navbar-nav .nav-item .nav-link:hover.dropdown-toggle::after,
+    .navbar .navbar-nav .nav-item .nav-link.active.dropdown-toggle::after,
+    .navbar .navbar-nav .nav-item .nav-link:focus.dropdown-toggle::after,
+    .navbar .navbar-nav .nav-item .nav-link:active.dropdown-toggle::after,
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        text-decoration: none;
     }

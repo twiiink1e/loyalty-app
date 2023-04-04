@@ -1,4 +1,11 @@
 @extends('layouts.userapp')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
 @section('content')
     <section class="section">
         <div class="container" style="min-height: 750px">
@@ -10,7 +17,7 @@
             <div class="row row--top-20">
                 <div class="col-md-12">
                     <div class="table-container">
-                        <table class="table">
+                        <table class="table" id="example">
                             <thead class="table__thead">
                                 <tr>
                                     <th class="table__th">Reference</th>
@@ -76,8 +83,29 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
+
+    <script>
+        $(document).ready(function() {
+            // DataTable initialisation
+            $('#example').DataTable({
+                "paging": true,
+                "autoWidth": true,
+                "columnDefs": [{
+                    "targets": 3,
+                    render: function(data, type, full, meta) {
+                        if (type === 'display' && data == 'Done') {
+                            var rowIndex = meta.row + 1;
+                            $('#example tbody tr:nth-child(' + rowIndex + ')').addClass(
+                                'lightRed');
+                            return data;
+                        } else {
+                            return data;
+                        }
+                    }
+                }]
+            });
+        });
+    </script>
 @endsection

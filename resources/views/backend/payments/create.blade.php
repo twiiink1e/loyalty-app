@@ -123,7 +123,8 @@
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Customer</label>
                                         <select class="form-control" data-trigger name="customer_id"
-                                            id="choices-single-default" placeholder="Choose reward" required>
+                                        id="choices-single-default"
+                                        placeholder="Choose customer" required>
                                             <option value="">Choose Customer</option>
                                             @foreach ($customers as $customer)
                                                 <option value="{{ $customer->id }}"
