@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\Company;
-use App\Models\Customer;
-use App\Models\Redeem;
-use App\Models\Reward;
+
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -30,7 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::get();
+        $current_date = Carbon::now();
+
+        $announcements = Announcement::select()
+        ->whereDate('expire', '>', $current_date)
+        ->get();
 
         return view('newwelcome', compact('announcements'));
     } 

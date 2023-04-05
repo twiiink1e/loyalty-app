@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Carbon;
+
 class HomeFrontController extends Controller
 {
     /**
@@ -15,7 +17,11 @@ class HomeFrontController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::orderBy('id', 'DESC')->get();
+        $current_date = Carbon::now();
+
+        $announcements = Announcement::select()
+        ->whereDate('expire', '>', $current_date)
+        ->get();
 
         return view('newwelcome', compact('announcements'));
     }

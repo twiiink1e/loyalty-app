@@ -15,6 +15,7 @@ class Announcement extends Model
         'thumbnail',
         'reward_id',
         'company_id',
+        'expire',
     ];
 
     public function company()

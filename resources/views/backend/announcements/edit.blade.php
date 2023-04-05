@@ -41,15 +41,26 @@
                                         @endforeach
                                     </select>
 
-                                    <div class="mb-3">
-                                        <label for="example-text-input" class="form-label">Reward</label>
-                                        <select class="form-select form-select-lg mb-3" name="reward_id"
-                                            aria-label=".form-select-lg example" required>
-                                            <option value="">Choose reward</option>
-                                            @foreach ($rewards as $reward)
-                                                <option value="{{ $reward->id }}">{{ $reward->name }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label for="example-text-input" class="form-label">Reward</label>
+                                                <select class="form-select form-select-lg mb-3" name="reward_id"
+                                                    aria-label=".form-select-lg example" required>
+                                                    <option value="">Choose reward</option>
+                                                    @foreach ($rewards as $reward)
+                                                        <option value="{{ $reward->id }}" {{ $announcement->reward_id == $reward->id ? 'selected' : '' }}>{{ $reward->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label">Expire Date</label>
+                                                <input type="date" class="form-control" id="datePickerId" name="expire" value="{{ $announcement->expire }}">
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="mb-3">

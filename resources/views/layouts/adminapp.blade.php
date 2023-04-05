@@ -277,7 +277,7 @@
     <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
-    
+
     <!-- pace js -->
     <script src="{{ asset('assets/libs/pace-js/pace.min.js') }}"></script>
 
@@ -329,7 +329,9 @@
     <!-- init js -->
     <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
 
- 
+
+
+
     <script type="text/javascript">
         $('.show-alert-delete-box').click(function(event) {
             var form = $(this).closest("form");
@@ -365,6 +367,10 @@
                 $(".alert").alert('close');
             });
         });
+    </script>
+
+    <script>
+        datePickerId.min = new Date().toISOString().split("T")[0];
     </script>
 
 </body>

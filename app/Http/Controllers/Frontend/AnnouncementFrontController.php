@@ -11,8 +11,9 @@ use App\Models\Redeem;
 use App\Models\Reward;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Carbon;
+
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class AnnouncementFrontController extends Controller
 {
@@ -23,7 +24,14 @@ class AnnouncementFrontController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::orderBy('id', 'DESC')->get();
+
+        $current_date = Carbon::now();
+
+        $announcements = Announcement::select()
+        ->whereDate('expire', '>', $current_date)
+        ->orderBy('id', 'DESC')
+        ->get();
+
         $companies = Company::get();
 
         return view('frontend.announcements.index', compact('announcements', 'companies'));

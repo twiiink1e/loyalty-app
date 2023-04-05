@@ -31,6 +31,9 @@
             <p class="mb-2">Description:</p>
             <h5 class="font-size-15">{{ $announcement->description }}</h5>
 
+            <p class="mb-2">Expire Date:</p>
+            <h5 class="font-size-15">{{ $announcement->expire }}</h5>
+
             <p class="mb-2"></p>Current thumbnail: </p>
             <img src="/thumbnails/{{ $announcement->thumbnail }}" width="200px">
 

@@ -230,9 +230,9 @@
                                     <div class="blog-entry">
                                         <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('/thumbnails/{{ $announcement->thumbnail }}');">
                                             <div class="meta-date text-center p-2">
-                                                <span class="day">{{\Carbon\Carbon::parse($announcement->created_at)->format('d')}}</span>
-                                                <span class="mos">{{\Carbon\Carbon::parse($announcement->created_at)->format('M')}}</span>
-                                                <span class="yr">{{\Carbon\Carbon::parse($announcement->created_at)->format('Y')}}</span>
+                                                <span class="mos">Ends in</span>
+                                                <span class="day">{{\Carbon\Carbon::now()->diffInDays($announcement->expire)}}</span>
+                                                <span class="yr">Days</span>
                                             </div>
                                         </a>
                                         <div class="text border border-top-0 p-4">
