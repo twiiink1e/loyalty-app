@@ -96,10 +96,9 @@
 
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i class='bx bx-award'></i>&emsp;Profile Point</a>
 
-                                {{-- <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a> --}}
-
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i class='bx bx-list-check'></i>&emsp; History</a>
 
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-edit'></i>&emsp;Change Password</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -231,7 +230,7 @@
                                         <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('/thumbnails/{{ $announcement->thumbnail }}');">
                                             <div class="meta-date text-center p-2">
                                                 <span class="mos">Ends in</span>
-                                                <span class="day">{{\Carbon\Carbon::now()->diffInDays($announcement->expire)}}</span>
+                                                <span class="day">{{\Carbon\Carbon::now()->diffInDays($announcement->expire) + 1}}</span>
                                                 <span class="yr">Days</span>
                                             </div>
                                         </a>
@@ -501,6 +500,14 @@
             $(this).html(txt)
         });
     </script>
+
+<script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+</script>
 
 </body>
 

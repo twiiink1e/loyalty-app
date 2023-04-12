@@ -57,6 +57,8 @@
 
                         <tbody>
                             @foreach ($redeems as $redeem)
+                                @include('backend.redeems.show')
+
                                 <tr>
                                     <td>{{ $redeem->code }}</td>
                                     <td>{{ $redeem->customer->name }}</td>
@@ -83,8 +85,10 @@
 
                                     <td>
                                         <form action="{{ route('redeems.destroy', $redeem->id) }}" method="POST">
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                                href="{{ route('redeems.show', $redeem->id) }}">
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{ $redeem->id }}"
+                                                style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
 
@@ -97,14 +101,12 @@
                                             @method('DELETE')
 
                                             @if ($redeem->status == 'canceled')
-
                                             @else
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit"
-                                                class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
-                                                data-toggle="tooltip" title='Delete'><i
-                                                    class='fas fas fa-times'></i></button>
-
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit"
+                                                    class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
+                                                    data-toggle="tooltip" title='Delete'><i
+                                                        class='fas fas fa-times'></i></button>
                                             @endif
                                         </form>
                                     </td>

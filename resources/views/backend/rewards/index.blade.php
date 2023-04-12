@@ -32,9 +32,11 @@
 
                     <div class="mt-4">
                         @if ($message = Session::get('success'))
-                            <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show" role="alert">
+                            <div class="alert alert-success alert-dismissible alert-label-icon label-arrow fade show"
+                                role="alert">
                                 <i class="mdi mdi-check-all label-icon"></i><strong>Success</strong> - {{ $message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
                         @endif
                     </div>
@@ -56,6 +58,7 @@
 
                         <tbody>
                             @foreach ($rewards as $reward)
+                                @include('backend.rewards.show')
                                 <tr>
                                     <td>{{ $reward->id }}</td>
                                     <td>
@@ -66,10 +69,13 @@
                                     <td>{{ $reward->remark }}</td>
                                     <td>
                                         <form action="{{ route('rewards.destroy', $reward->id) }}" method="POST">
-                                            <a class="btn btn-outline-secondary btn-sm edit" title="View" 
-                                            href="{{ route('rewards.show', $reward->id) }}">
+
+                                            <a class="btn btn-outline-secondary btn-sm edit" title="View"
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{ $reward->id }}"
+                                                style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit"
                                                 href="{{ route('rewards.edit', $reward->id) }}">
                                                 <i class="fas fa-pencil-alt"></i>

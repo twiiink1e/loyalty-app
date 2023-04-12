@@ -85,7 +85,7 @@
                                             @foreach ($rewards as $reward)
                                                 <option value="{{ $reward->id }}"
                                                     {{ old('reward_id', request()->get('reward_id')) == $reward->id ? 'selected' : '' }}>
-                                                    {{ $reward->name }}</option>
+                                                    {{ $reward->name }} : {{ $reward->point }} points</option>
                                             @endforeach
                                         </select>
                                     </div>

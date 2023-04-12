@@ -56,10 +56,12 @@
                                         <label for="example-text-input" class="form-label">Company Logo</label>
                                         <input class="form-control" type="file" id="example-text-input"
                                             name="logo">
-
-                                            <label for="" class="form-label">Current Logo</label><br>
-                                            <img src="/logos/{{ $company->logo }}" width="300px">
                                         </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Current Logo</label><br>
+                                        <img src="/logos/{{ $company->logo }}" width="300px">
                                     </div>
 
                                     <div class="float-end">

@@ -54,6 +54,8 @@
                         <tbody>
 
                             @foreach ($customers as $customer)
+                            @include('backend.customers.show')
+
                                 <tr>
                                     <td>{{ $customer->id }}</td>
                                     <td>{{ $customer->name }}</td>
@@ -63,7 +65,8 @@
                                         <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
 
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                                href="{{ route('customers.show', $customer->id) }}">
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{$customer->id}}"
+                                                style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
 
@@ -87,9 +90,10 @@
 
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div> <!-- end col -->
+
     </div> <!-- end row -->
+    
 @endsection

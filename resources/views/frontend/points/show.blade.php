@@ -16,7 +16,7 @@
                     <h2 class="row__title2">Current point: {{ $point->point }} points</h2>
                 </div>
             </div>
-            
+
             <div class="point-web">
                 <div class="row row--top-20">
                     <div class="col-md-12">
@@ -28,6 +28,7 @@
                                         <th class="table__th">Payment</th>
                                         <th class="table__th">Point</th>
                                         <th class="table__th">Date</th>
+                                        <th class="table__th">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table__tbody">
@@ -42,7 +43,7 @@
                                                         <img src="/logos/{{ $payment->company->logo }}"
                                                             class="img-fluid profile-image" style="max-height: 70px;">
                                                     @endif
-    
+
                                                 </div>
                                                 <div class="table-row__info">
                                                     <p class="table-row__name">{{ $payment->company->name }}</p>
@@ -54,19 +55,24 @@
                                                     {{-- <span class="table-row__small"> </span> --}}
                                                 </div>
                                             </td>
-    
+
                                             <td data-column="Status" class="table-row__td">
-                                                <p class="table-row__reward status--green">+ {{ $payment->total / $cal->main }}
+                                                <p class="table-row__reward status--green">+
+                                                    {{ $payment->total / $cal->main }}
                                                     points</p>
                                             </td>
-    
+
                                             <td data-column="Date" class="table-row__td">
                                                 <p class="table-row__reward">{{ $payment->created_at }}</p>
                                             </td>
+
+                                            <td data-column="Date" class="table-row__td">
+                                                <p class="table-row__status status--green status">
                                             </td>
+
                                         </tr>
                                     @endforeach
-    
+
                                     @foreach ($redeems as $redeem)
                                         <tr class="table-row table-row--chris">
                                             <td class="table-row__td">
@@ -78,7 +84,7 @@
                                                         <img src="/logos/{{ $redeem->company->logo }}"
                                                             class="img-fluid profile-image" style="max-height: 70px;">
                                                     @endif
-    
+
                                                 </div>
                                                 <div class="table-row__info">
                                                     <p class="table-row__name">{{ $redeem->company->name }}</p>
@@ -89,15 +95,25 @@
                                                     <p class="table-row__reward">{{ $redeem->reward->name }}</p>
                                                 </div>
                                             </td>
-    
+
                                             <td data-column="Status" class="table-row__td">
-                                                <p class="table-row__reward status--red"> - {{ $redeem->reward->point }} points
+                                                <p class="table-row__reward status--red"> - {{ $redeem->reward->point }}
+                                                    points
                                                 </p>
                                             </td>
-    
+
                                             <td data-column="Date" class="table-row__td">
                                                 <p class="table-row__reward">{{ $redeem->created_at }}</p>
                                             </td>
+
+                                            <td data-column="Status" class="table-row__td">
+                                                @if ($redeem->status == 'canceled')
+                                                    <p class="table-row__status status--red status">
+                                                    @elseif ($redeem->status == 'success')
+                                                    <p class="table-row__status status--green status">
+                                                    @else
+                                                    <p class="table-row__status status--green status">
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -133,7 +149,7 @@
                                                         <img src="/logos/{{ $payment->company->logo }}"
                                                             class="img-fluid profile-image" style="max-height: 70px;">
                                                     @endif
-    
+
                                                 </div>
                                                 <div class="table-row__info">
                                                     <p class="table-row__name">{{ $payment->company->name }}</p>
@@ -145,19 +161,20 @@
                                                     {{-- <span class="table-row__small"> </span> --}}
                                                 </div>
                                             </td>
-    
+
                                             <td data-column="Status" class="table-row__td">
-                                                <p class="table-row__reward status--green">+ {{ $payment->total / $cal->main }}
+                                                <p class="table-row__reward status--green">+
+                                                    {{ $payment->total / $cal->main }}
                                                     points</p>
                                             </td>
-    
+
                                             <td data-column="Date" class="table-row__td">
                                                 <p class="table-row__reward">{{ $payment->created_at }}</p>
                                             </td>
                                             </td>
                                         </tr>
                                     @endforeach
-    
+
                                     @foreach ($redeems as $redeem)
                                         <tr class="table-row table-row--chris">
                                             <td class="table-row__td">
@@ -169,7 +186,7 @@
                                                         <img src="/logos/{{ $redeem->company->logo }}"
                                                             class="img-fluid profile-image" style="max-height: 70px;">
                                                     @endif
-    
+
                                                 </div>
                                                 <div class="table-row__info">
                                                     <p class="table-row__name">{{ $redeem->company->name }}</p>
@@ -180,12 +197,13 @@
                                                     <p class="table-row__reward">{{ $redeem->reward->name }}</p>
                                                 </div>
                                             </td>
-    
+
                                             <td data-column="Status" class="table-row__td">
-                                                <p class="table-row__reward status--red"> - {{ $redeem->reward->point }} points
+                                                <p class="table-row__reward status--red"> - {{ $redeem->reward->point }}
+                                                    points
                                                 </p>
                                             </td>
-    
+
                                             <td data-column="Date" class="table-row__td">
                                                 <p class="table-row__reward">{{ $redeem->created_at }}</p>
                                             </td>
@@ -224,5 +242,4 @@
             });
         });
     </script>
-
 @endsection

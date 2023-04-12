@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\RewardController;
 use App\Http\Controllers\Frontend\AnnouncementFrontController;
 use App\Http\Controllers\Frontend\HistoryFrontController;
 use App\Http\Controllers\Frontend\HomeFrontController;
+use App\Http\Controllers\Frontend\PasswordController;
 use App\Http\Controllers\Frontend\PointFrontController;
 
 /*
@@ -63,6 +64,9 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     
     Route::get('/announcement/{id}', [AnnouncementFrontController::class, 'show'])->name('frontannouncements.show');
     Route::post('/announcement/store', [AnnouncementFrontController::class, 'store'])->name('frontannouncements.store');
+
+    Route::get('user/change-password', [PasswordController::class, 'changePassword'])->name('user-change-password');
+    Route::post('user/change-password', [PasswordController::class, 'updatePassword'])->name('user-update-password');
 
 });
   

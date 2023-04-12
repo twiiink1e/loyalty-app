@@ -108,11 +108,10 @@
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i
                                         class='bx bx-award'></i>&emsp;Profile Point</a>
 
-                                {{-- <a class="dropdown-item" href=" #"><i class='bx bx-edit'></i>&emsp;Edit Profile</a> --}}
-
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i
                                         class='bx bx-list-check'></i>&emsp; History</a>
 
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-edit'></i>&emsp;Change Password</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

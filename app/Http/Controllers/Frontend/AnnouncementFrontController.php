@@ -204,6 +204,8 @@ class AnnouncementFrontController extends Controller
     {
 
         // dd($request->all());
+        
+        $current_date = Carbon::now();
 
         $companies = Company::get();
 
@@ -216,6 +218,8 @@ class AnnouncementFrontController extends Controller
         $inputSearch = $request->input('inputSearch');
 
         $announcements = Announcement::select()
+
+        ->whereDate('expire', '>', $current_date)
 
         ->where(function($query) use ($inputSelect){
             if ($inputSelect){

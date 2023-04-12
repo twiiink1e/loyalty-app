@@ -71,9 +71,11 @@
 
                                     <div class="mb-3">
                                         <label for="example-tel-input" class="form-label">Description</label>
-                                        <input class="form-control" type="text" value="{{ old('description') }}"
+                                        {{-- <input class="form-control" type="text" value="{{ old('description') }}"
                                             id="example-tel-input" placeholder="Enter announcement description"
-                                            name="description">
+                                            name="description"> --}}
+                                        
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description"  placeholder="Enter announcement description"></textarea>
                                     </div>
 
 

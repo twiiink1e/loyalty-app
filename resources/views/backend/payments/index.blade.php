@@ -29,7 +29,7 @@
                     <a href="{{ route('payments.create') }}">
                         <button type="button" class="btn btn-primary waves-effect waves-light"
                             style="float: right; margin-top: -25px"><i data-feather="plus-circle"
-                                class="icon-lg"></i>&emsp;Create payment</button>
+                                class="icon-lg"></i>&emsp;Create Payment</button>
                     </a>
 
                     <div class="mt-4">
@@ -51,8 +51,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Customer Phone</th>
-                                <th>Name</th>
+                                <th>Customer Name</th>
+                                <th>Phone</th>
                                 <th>Total ($)</th>
                                 <th>Action</th>
                             </tr>
@@ -60,6 +60,7 @@
 
                         <tbody>
                             @foreach ($payments as $payment)
+                            @include('backend.payments.show')
                                 <tr>
                                     <td>{{ $payment->id }}</td>
                                     <td>{{ $payment->customer->name }}</td>
@@ -68,8 +69,10 @@
                                     {{-- <td>{{ $payment->remark }}</td> --}}
                                     <td>
                                         <form action="{{ route('payments.destroy', $payment->id) }}" method="POST">
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                                href="{{ route('payments.show', $payment->id) }}">
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{$payment->id}}"
+                                                style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
 

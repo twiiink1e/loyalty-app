@@ -51,27 +51,33 @@
                                 <th style="width: 100px">Thumbnail</th>
                                 <th>Reward</th>
                                 <th>Topic</th>
-                                {{-- <th style="width: 350px">Description</th> --}}
+                                <th>Expire Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach ($announcements as $announcement)
+
+                            @include('backend.announcements.show')
+
                                 <tr>
                                     <td>{{ $announcement->id }}</td>
                                     <td><img src="/thumbnails/{{ $announcement->thumbnail }}" width="100px"></td>
                                     <td>{{ $announcement->reward->name }}</td>
                                     <td>{{ $announcement->topic }}</td>
-                                    {{-- <td>{{ $announcement->description }}</td> --}}
+                                    <td>{{ \Carbon\Carbon::parse($announcement->expire)->format('d/m/Y') }}</td>
 
                                     <td>
                                         <form action="{{ route('announcements.destroy', $announcement->id) }}"
                                             method="POST">
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                                href="{{ route('announcements.show', $announcement->id) }}">
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{ $announcement->id }}"
+                                                style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
+
                                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit"
                                                 href="{{ route('announcements.edit', $announcement->id) }}">
                                                 <i class="fas fa-pencil-alt"></i>
