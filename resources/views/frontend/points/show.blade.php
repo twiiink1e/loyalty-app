@@ -51,7 +51,7 @@
                                             </td>
                                             <td data-column="reward" class="table-row__td">
                                                 <div class="">
-                                                    <p class="table-row__reward">{{ $payment->total }}</p>
+                                                    <p class="table-row__reward">{{ $payment->total }} $</p>
                                                     {{-- <span class="table-row__small"> </span> --}}
                                                 </div>
                                             </td>

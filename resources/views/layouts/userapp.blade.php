@@ -105,13 +105,15 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
+
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i
                                         class='bx bx-award'></i>&emsp;Profile Point</a>
 
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i
                                         class='bx bx-list-check'></i>&emsp; History</a>
 
-                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-edit'></i>&emsp;Change Password</a>
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-lock'></i>&emsp;Change Password</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

@@ -18,6 +18,7 @@ class PasswordController extends Controller
 
     public function updatePassword(Request $request)
     {
+        
         # Validation
         $request->validate([
             'old_password' => 'required',

@@ -94,12 +94,14 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
+
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i class='bx bx-award'></i>&emsp;Profile Point</a>
 
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i class='bx bx-list-check'></i>&emsp; History</a>
 
-                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-edit'></i>&emsp;Change Password</a>
-
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-lock'></i>&emsp;Change Password</a>
+                                
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -188,37 +190,6 @@
             </div>
             <!--end row-->
             <div class="row">
-                {{-- <div class="container">
-                    <div class="blank"></div>
-                    <div class="row justify-content-center">
-                        <div class="content">
-                            <div class="row">
-                                @foreach ($announcements as $announcement)
-                                    <div class="col-xs-12 col-sm-4">
-                                        <div class="cardhome">
-                                            <a class="img-card" href="{{ route('frontannouncements.show', $announcement->id)}}">
-                                                <img src="/thumbnails/{{ $announcement->thumbnail }}">
-                                            </a>
-                                            <div class="card-content">
-
-                                                <h4 class="card-title">
-                                                    <a href="#">{{ $announcement->topic }}</a>
-                                                </h4>
-                                                <p>
-                                                    {{ $announcement->description }}
-                                                </p>
-                                                <p>
-                                                    {{ $announcement->company->name }}
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
 
                 <div class="container" style="margin-top: 50px">
                     <div class="row">
@@ -238,7 +209,7 @@
                                             <p class="meta2 mt-1 mb-1">
                                                 <a href="#" class="mr-2">{{ $announcement->company->name }}</a>
                                             </p>
-                                            <h3 class="heading"><a href="#">{{ $announcement->topic }}</a></h3>
+                                            <h3 class="heading"><a href="{{ route('frontannouncements.show', $announcement->id)}}">{{ $announcement->topic }}</a></h3>
                                             <div class="desc">
                                                 <p>{{ $announcement->description }}</p>
                                             </div>

@@ -1,3 +1,4 @@
+
 @extends('layouts.adminapp')
 
 @section('content')
@@ -131,7 +132,7 @@
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col -->
-        
+
     </div><!-- end row -->
 
     <div class="row">
@@ -144,7 +145,8 @@
                                 <div class="col">
                                     <h5 class="my-0"><i class="mdi mdi-office-building-outline me-3"></i>About Company
                                         <a href="{{ route('companies.edit', $company->id) }}"
-                                            class="card-text float-end">Edit</a></h5>
+                                            class="card-text float-end">Edit</a>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -180,8 +182,8 @@
                             <div class="card-header bg-transparent">
                                 <h5 class="my-0">
                                     <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                    <a class="card-text float-end" style="cursor: pointer"
-                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <a class="card-text float-end" style="cursor: pointer" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
                                         Edit
                                     </a>
                                 </h5>
@@ -240,8 +242,8 @@
                             <div class="card-header bg-transparent">
                                 <h5 class="my-0">
                                     <i class="mdi mdi-alarm-plus me-3"></i>Calculation
-                                    <a class="card-text float-end"
-                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="cursor: pointer">
+                                    <a class="card-text float-end" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop" style="cursor: pointer">
                                         Create
                                     </a>
                                 </h5>
@@ -350,7 +352,6 @@
         </div><!-- end col -->
 
     </div> <!-- end row -->
-
 
 
 @endsection
