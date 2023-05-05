@@ -21,7 +21,7 @@ class HistoryFrontController extends Controller
 
         // dd($phone);
 
-        $redeems = Redeem::orderBy('id', 'DESC')->select()
+        $redeems = Redeem::orderBy('created_at', 'desc')->select()
         ->where(function($query) use ($phone){
             $query->whereHas('customer', function($query) use ($phone){
                 $query->where('phone', 'like', '%'.$phone.'%');

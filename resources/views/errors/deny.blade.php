@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center mb-5 pt-5">
-                            <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678129-lock-512.png" style="width: 20%" alt="">
+                            <img src="assets/images/lock.png" style="width: 20%" alt="">
                             <h1 class="title mt-5"><span>Access Denied!</span></h1>
                             <h4 class="text-uppercase mt-5">Sorry, you don't have permission to access.</h4>
                             {{-- <p class="font-size-15 mx-auto text-muted w-50 mt-4">It will be as simple as Occidental in fact, it will Occidental to an English person</p> --}}

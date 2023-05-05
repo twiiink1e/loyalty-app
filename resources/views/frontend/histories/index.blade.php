@@ -1,10 +1,13 @@
 @extends('layouts.userapp')
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+
 
 @section('content')
     <section class="section">
@@ -25,6 +28,7 @@
                                     <th class="table__th">reward</th>
                                     <th class="table__th">Status</th>
                                     <th class="table__th">Date</th>
+                                    {{-- <th class="table__th">Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody class="table__tbody">
@@ -43,7 +47,6 @@
                                                 @else
                                                     <img src="/logos/{{ $redeem->company->logo }}"
                                                         class="img-fluid profile-image" style="max-height: 70px;">
-
                                                 @endif
 
                                             </div>
@@ -65,18 +68,17 @@
                                             @elseif ($redeem->status == 'success')
                                                 <p class="table-row__status status--green status">
                                                     {{ $redeem->status }}</p>
-                                            
                                             @else
-                                            <p class="table-row__status status--red status">
-                                                {{ $redeem->status }}</p>
-
+                                                <p class="table-row__status status--red status">
+                                                    {{ $redeem->status }}</p>
                                             @endif
                                         </td>
                                         <td data-column="Date" class="table-row__td">
                                             <p class="table-row__reward">{{ $redeem->created_at }}</p>
                                         </td>
-                                        </td>
+
                                     </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
@@ -85,6 +87,34 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
     <script>
         $(document).ready(function() {

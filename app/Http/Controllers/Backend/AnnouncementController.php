@@ -127,7 +127,7 @@ class AnnouncementController extends Controller
         $request->validate([
             'topic' => 'required',
             'description' => 'required',
-
+            
         ]);
 
         $input = $request->all();

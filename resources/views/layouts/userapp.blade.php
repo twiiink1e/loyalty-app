@@ -41,7 +41,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="60">
@@ -105,7 +104,8 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i
+                                        class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
 
                                 <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i
                                         class='bx bx-award'></i>&emsp;Profile Point</a>
@@ -113,11 +113,12 @@
                                 <a class="dropdown-item" href="{{ route('histories.index') }}"><i
                                         class='bx bx-list-check'></i>&emsp; History</a>
 
-                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-lock'></i>&emsp;Change Password</a>
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i
+                                        class='bx bx-lock'></i>&emsp;Change Password</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                     <i class='bx bx-log-out'></i>&emsp; {{ __(' Log Out') }}
                                 </a>
 
@@ -216,7 +217,7 @@
         });
     </script>
 
-    <!-- Bootstrap Bundale js -->
+    <!-- Bootstrap Bundle js -->
     <script src="{{ asset('assets/front/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Swiper Slider js -->
@@ -239,6 +240,7 @@
             $('#myTable').DataTable();
         });
     </script>
+
 </body>
 
 </html>

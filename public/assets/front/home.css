@@ -416,3 +416,35 @@
     .dropdown-item:hover {
         text-decoration: none;
     }
+    
+    .marquee {
+        display: flex;
+        mask-image: linear-gradient( 90deg, hsla(0, 0, 0, 0) 0%, hsla(0, 0, 0, 1) 25%, hsla(0, 0, 0, 1) 75%, hsla(0, 0, 0, 0) 100%);
+        max-width: 100vw;
+        overflow: hidden;
+        user-select: none;
+    }
+    
+    .logo_slide {
+        width: 25vmin;
+        height: 25vmin;
+        padding: 4rem;
+    }
+    
+    .slide {
+        align-items: center;
+        animation: slide-x 20s linear infinite;
+        display: flex;
+        flex-shrink: 0;
+        justify-content: space-around;
+        min-width: 100%;
+    }
+    
+    @keyframes slide-x {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }

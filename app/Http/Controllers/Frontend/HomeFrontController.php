@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Carbon;
@@ -23,7 +24,9 @@ class HomeFrontController extends Controller
         ->whereDate('expire', '>', $current_date)
         ->get();
 
-        return view('newwelcome', compact('announcements'));
+        $companies = Company::get();
+
+        return view('newwelcome', compact('announcements', 'companies'));
     }
 
     /**

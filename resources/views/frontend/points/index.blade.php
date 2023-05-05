@@ -18,7 +18,9 @@
                             <div class="top-container">
 
                                 @if (is_null($point->company->logo))
-                                <img src="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png"
+                                <img src="assets/images/empty.gif
+                                
+                                "
                                 class="img-fluid profile-image" style="max-height: 70px;">
                                 
 

@@ -3,10 +3,10 @@
 @section('content')
     <section class="section" style="min-height: 1000px">
         @if ($message = Session::get('success'))
-        <div class="alert alert-danger text-center" style="position: absolute; left: 100px; top: 205px">
-            <h2>{{ $message }}</h2>
-        </div>
-    @endif
+            <div class="alert alert-danger text-center" style="position: absolute; left: 100px; top: 205px">
+                <h2>{{ $message }}</h2>
+            </div>
+        @endif
 
         <div class="row">
             <div class="col">
@@ -33,7 +33,7 @@
                         <span class="price-box__main-new">{{ $announcement->reward->point }} points</span>
 
                     </div>
-                    
+
                     @forelse($points as $point)
                         <span class="price-box__old">Your current point: {{ $point->point }}</span>
 
@@ -41,7 +41,13 @@
                             <button class="btn btn-primary btn--orange" id="open-modal">Claim</button>
                         </div>
                     @empty
-                         <span class="price-box__old">Your current point: 0</span>
+                        <span class="price-box__old">Your current point: 0</span>
+
+                        <div class="price-btnbox">
+                            <a href="/announcements">
+                                <button class="btn btn-primary btn--orange">Go Back</button>
+                            </a>
+                        </div>
                     @endforelse
 
                 </div>
@@ -60,9 +66,9 @@
                                 <p>Cost: {{ $announcement->reward->point }} points</p>
 
                                 @forelse($points as $point)
-                                <p>Your current point: {{ $point->point }} points</p>
+                                    <p>Your current point: {{ $point->point }} points</p>
                                 @empty
-                                <p>Your current point: 0 points</p>
+                                    <p>Your current point: 0 points</p>
                                 @endforelse
 
                                 <input type="text" value="{{ $announcement->reward->id }}" name="reward_id" hidden>
@@ -102,5 +108,4 @@
             });
         });
     </script>
-    
 @endsection

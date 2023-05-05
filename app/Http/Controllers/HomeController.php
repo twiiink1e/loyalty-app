@@ -35,7 +35,10 @@ class HomeController extends Controller
         ->whereDate('expire', '>', $current_date)
         ->get();
 
-        return view('newwelcome', compact('announcements'));
+        $companies = Company::get();
+
+
+        return view('newwelcome', compact('announcements', 'companies'));
     } 
   
     /**

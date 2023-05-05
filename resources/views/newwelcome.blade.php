@@ -38,7 +38,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('assets/corousel/css/style.css') }}">
 
-
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="60">
@@ -94,14 +93,18 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::user()->id) }}"><i
+                                        class='bx bx-edit-alt'></i>&emsp;Edit Profile</a>
 
-                                <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i class='bx bx-award'></i>&emsp;Profile Point</a>
+                                <a class="dropdown-item" href=" {{ route('pointfront.index') }}"><i
+                                        class='bx bx-award'></i>&emsp;Profile Point</a>
 
-                                <a class="dropdown-item" href="{{ route('histories.index') }}"><i class='bx bx-list-check'></i>&emsp; History</a>
+                                <a class="dropdown-item" href="{{ route('histories.index') }}"><i
+                                        class='bx bx-list-check'></i>&emsp; History</a>
 
-                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i class='bx bx-lock'></i>&emsp;Change Password</a>
-                                
+                                <a class="dropdown-item" href="{{ route('user-change-password') }}"><i
+                                        class='bx bx-lock'></i>&emsp;Change Password</a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -139,7 +142,7 @@
                             <div class="text-center subscribe-form mt-5">
                                 <form action="{{ route('announcements.search') }}" method="get">
                                     <input type="text" class="control-form" id="inputemail"
-                                    placeholder="Find your favorite store" name="inputSearch">
+                                        placeholder="Find your favorite store" name="inputSearch">
                                     <button type="submit" class="btn btn-primary">Search</button>
                                 </form>
                             </div>
@@ -176,14 +179,14 @@
     </div>
     <!-- END HOME -->
 
-    <!-- START FEATURES -->
+    <!-- START ANNOUNCEMENT -->
     <section class="section" id="announcement">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center mb-5">
                         <h3>Loyaltee is here to help you gain.</h3>
-                        <p class="text-muted">Get reward by exchanging your loyalty point.</p>
+                        <p class="text-muted">Make the Sale. Keep the Customer.</p>
                     </div>
                 </div>
                 <!--end col-->
@@ -195,30 +198,38 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="featured-carousel owl-carousel">
-                            @foreach ($announcements as $announcement)
-                                <div class="item">
-                                    <div class="blog-entry">
-                                        <a href="#" class="block-20 d-flex align-items-start" style="background-image: url('/thumbnails/{{ $announcement->thumbnail }}');">
-                                            <div class="meta-date text-center p-2">
-                                                <span class="mos">Ends in</span>
-                                                <span class="day">{{\Carbon\Carbon::now()->diffInDays($announcement->expire) + 1}}</span>
-                                                <span class="yr">Days</span>
-                                            </div>
-                                        </a>
-                                        <div class="text border border-top-0 p-4">
-                                            <p class="meta2 mt-1 mb-1">
-                                                <a href="#" class="mr-2">{{ $announcement->company->name }}</a>
-                                            </p>
-                                            <h3 class="heading"><a href="{{ route('frontannouncements.show', $announcement->id)}}">{{ $announcement->topic }}</a></h3>
-                                            <div class="desc">
-                                                <p>{{ $announcement->description }}</p>
-                                            </div>
-                                            <div class="d-flex align-items-center mt-4">
-                                                <h4 class="mb-0"><a href="{{ route('frontannouncements.show', $announcement->id)}}" class="btn btn-primary">Read More &nbsp; <span class="ion-ios-arrow-round-forward"></span></a></h4>
+                                @foreach ($announcements as $announcement)
+                                    <div class="item">
+                                        <div class="blog-entry">
+                                            <a href="#" class="block-20 d-flex align-items-start"
+                                                style="background-image: url('/thumbnails/{{ $announcement->thumbnail }}');">
+                                                <div class="meta-date text-center p-2">
+                                                    <span class="mos">Ends in</span>
+                                                    <span
+                                                        class="day">{{ \Carbon\Carbon::now()->diffInDays($announcement->expire) + 1 }}</span>
+                                                    <span class="yr">Days</span>
+                                                </div>
+                                            </a>
+                                            <div class="text border border-top-0 p-4">
+                                                <p class="meta2 mt-1 mb-1">
+                                                    <a href="#"
+                                                        class="mr-2">{{ $announcement->company->name }}</a>
+                                                </p>
+                                                <h3 class="heading"><a
+                                                        href="{{ route('frontannouncements.show', $announcement->id) }}">{{ $announcement->topic }}</a>
+                                                </h3>
+                                                <div class="desc">
+                                                    <p>{{ $announcement->description }}</p>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-4">
+                                                    <h4 class="mb-0"><a
+                                                            href="{{ route('frontannouncements.show', $announcement->id) }}"
+                                                            class="btn btn-primary">Read More &nbsp; <span
+                                                                class="ion-ios-arrow-round-forward"></span></a></h4>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
 
                             </div>
@@ -232,8 +243,120 @@
         </div>
         <!--end container-->
     </section>
-    <!-- END FEATURES -->
+    <!-- END ANNOUNCEMENT -->
 
+
+    <!--start contact-->
+    {{-- <section class="section bg-light" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center mb-5">
+                        <h3>Contact Us</h3>
+                        <p class="text-muted mt-2">Feel free to send us any suggestion or questions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="contact-details mb-4 mb-lg-0">
+                        <p class="mb-3"><i class="mdi mdi-email-outline align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">support@loyaltee.com</span></p>
+                        <p class="mb-3"><i class="mdi mdi-web align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">www.loyaltee.com</span></p>
+                        <p class="mb-3"><i class="mdi mdi-phone align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">+855 123 456</span></p>
+                        <p class="mb-3"><i class="mdi mdi-hospital-building text-muted fs-20 me-2"></i> <span class="fw-medium">9:00 AM - 6:00 PM</span></p>
+                        <p class="mb-3"><i class="mdi mdi-map-marker-outline text-muted fs-20 me-2"></i> <span class="fw-medium">#123, St123, Toul Tompong, Phnom Penh</span></p>
+                    </div>
+                    <!--end contact-details-->
+                </div>
+                <!--end col-->
+                <div class="col-lg-7">
+                    <form method="post" onsubmit="return validateForm()" class="contact-form" name="myForm" id="myForm">
+                        <span id="error-msg"></span>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-3">
+                                    <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
+                                    <input name="name" id="name" type="text" class="form-control" placeholder="Enter your name*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="position-relative mb-3">
+                                    <span class="input-group-text"><i class="mdi mdi-email-outline"></i></span>
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="Enter your email*">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="position-relative mb-3">
+                                    <span class="input-group-text"><i class="mdi mdi-file-document-outline"></i></span>
+                                    <input name="subject" id="subject" type="text" class="form-control" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="position-relative mb-3">
+                                    <span class="input-group-text align-items-start"><i class="mdi mdi-comment-text-outline"></i></span>
+                                    <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Enter your message*"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-end">
+                                <input type="submit" id="submit" name="send" class="btn btn-primary" value="Send Message">
+                            </div>
+                        </div>
+                    </form>
+                    <!--end form-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end container-->
+    </section> --}}
+    <!--end contact-->
+
+    <!--start contact-->
+    <section class="section bg-light" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="text-center mb-5">
+                        <h3>Our Partners</h3>
+                        <p class="text-muted mt-2">Companies that has used our system.</p>
+
+                        <div class="marquee">
+                            <div class="slide">
+                                <div class="logo">
+                                    @foreach ($companies as $company)
+                                        @if (is_null($company->logo))
+                                            <img src="">
+                                        @else
+                                            <img class="logo_slide" src="/logos/{{ $company->logo }}"
+                                                alt="">
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <div class="logo">
+                                    @foreach ($companies as $company)
+                                        @if (is_null($company->logo))
+                                            <img src="">
+                                        @else
+                                            <img class="logo_slide" src="/logos/{{ $company->logo }}"
+                                                alt="logo">
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!--end container-->
+    </section>
+    <!--end contact-->
 
     <!-- START FAQ -->
     <section class="section" id="faq">
@@ -315,74 +438,6 @@
     </section>
     <!-- END FAQ -->
 
-
-    <!--start contact-->
-    {{-- <section class="section bg-light" id="contact">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center mb-5">
-                        <h3>Contact Us</h3>
-                        <p class="text-muted mt-2">Feel free to send us any suggestion or questions.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="contact-details mb-4 mb-lg-0">
-                        <p class="mb-3"><i class="mdi mdi-email-outline align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">support@loyaltee.com</span></p>
-                        <p class="mb-3"><i class="mdi mdi-web align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">www.loyaltee.com</span></p>
-                        <p class="mb-3"><i class="mdi mdi-phone align-middle text-muted fs-20 me-2"></i> <span class="fw-medium">+855 123 456</span></p>
-                        <p class="mb-3"><i class="mdi mdi-hospital-building text-muted fs-20 me-2"></i> <span class="fw-medium">9:00 AM - 6:00 PM</span></p>
-                        <p class="mb-3"><i class="mdi mdi-map-marker-outline text-muted fs-20 me-2"></i> <span class="fw-medium">#123, St123, Toul Tompong, Phnom Penh</span></p>
-                    </div>
-                    <!--end contact-details-->
-                </div>
-                <!--end col-->
-                <div class="col-lg-7">
-                    <form method="post" onsubmit="return validateForm()" class="contact-form" name="myForm" id="myForm">
-                        <span id="error-msg"></span>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="mdi mdi-account-outline"></i></span>
-                                    <input name="name" id="name" type="text" class="form-control" placeholder="Enter your name*">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="mdi mdi-email-outline"></i></span>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Enter your email*">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="mdi mdi-file-document-outline"></i></span>
-                                    <input name="subject" id="subject" type="text" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text align-items-start"><i class="mdi mdi-comment-text-outline"></i></span>
-                                    <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Enter your message*"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-end">
-                                <input type="submit" id="submit" name="send" class="btn btn-primary" value="Send Message">
-                            </div>
-                        </div>
-                    </form>
-                    <!--end form-->
-                </div>
-                <!--end col-->
-            </div>
-            <!--end row-->
-        </div>
-        <!--end container-->
-    </section> --}}
-    <!--end contact-->
 
 
     <!--start back-to-top-->
@@ -472,13 +527,39 @@
         });
     </script>
 
-<script>
-    var msg = '{{Session::get('alert')}}';
-    var exist = '{{Session::has('alert')}}';
-    if(exist){
-      alert(msg);
-    }
-</script>
+    <script>
+        var msg = '{{ Session::get('alert') }}';
+        var exist = '{{ Session::has('alert') }}';
+        if (exist) {
+            alert(msg);
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+    </script>
+
 
 </body>
 
