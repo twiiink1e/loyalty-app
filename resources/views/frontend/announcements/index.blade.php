@@ -84,8 +84,8 @@
                         </div>
                     @empty
 
-                        <img src="https://cdn.dribbble.com/users/1242216/screenshots/9326781/dribbble_shot_hd_-_3_4x.png"
-                            alt="" style="width: 900px; margin: auto; padding-top: 35px">
+                        {{-- <img src="assets/images/empty2.png"
+                            alt="" style="width: 10px; margin: auto; padding-top: 35px"> --}}
                     @endforelse
                 </div>
             </div>
@@ -119,8 +119,8 @@
                 @empty
 
                 <div class="d-flex justify-content-center">                    
-                    <img src="assets/images/noresult.jpg"
-                    alt="noresult" style="max-width: 900px;  padding-top: 35px">
+                    <img src="assets/images/empty2.png"
+                    alt="noresult" style="max-width: 900px;">
                 </div>
 
                 @endforelse

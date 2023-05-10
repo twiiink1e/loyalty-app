@@ -107,17 +107,27 @@
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                     <i class='bx bx-log-out'></i>&emsp; {{ __(' Log Out') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-
                             </div>
                         </li>
                     @endguest
+                    
+                    {{-- <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>KH/EN                          
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><img src="/assets/images/cambodia.png" alt="" class="nav-link" style="width: 35px"></a>
+                            <a class="dropdown-item" href="#"><img src="/assets/images/united-kingdom.png" alt="" class="nav-link" style="width: 35px"></a>
+                        </div>
+                    </li> --}}
+                    
                 </ul>
                 <!--end navbar-nav-->
             </div>
@@ -479,7 +489,7 @@
                     <ul class="m-0 p-0">
                         <li><a href="/">Home</a></li>
                         <li><a href="#">Announcement</a></li>
-                        <li><a href="#">Privacy & Policy</a></li>
+                        {{-- <li><a href="#">Privacy & Policy</a></li> --}}
                         <li><a href="{{ route('admin.home') }}">Admin</a></li>
                     </ul>
 

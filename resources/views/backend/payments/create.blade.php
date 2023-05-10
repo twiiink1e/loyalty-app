@@ -142,7 +142,7 @@
 
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Remark</label>
-                                        <input class="form-control" type="number" value=""
+                                        <input class="form-control" type="text" value=""
                                             id="example-text-input" placeholder="Enter remark" name="">
                                     </div>
 

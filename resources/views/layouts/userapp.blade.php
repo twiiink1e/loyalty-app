@@ -190,8 +190,8 @@
                     <h4 class="mt-lg-0 mt-sm-3" style="font-size: 20px">Links</h4>
                     <ul class="m-0 p-0">
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">Reward</a></li>
-                        <li><a href="#">Privacy & Policy</a></li>
+                        <li><a href="#">Announcement</a></li>
+                        {{-- <li><a href="#">Privacy & Policy</a></li> --}}
                         <li><a href="{{ route('admin.home') }}">Admin</a></li>
                     </ul>
 
@@ -200,7 +200,7 @@
             </div>
             <div class="row mt-5">
                 <div class="col copyright">
-                    <p class=""><small class="text-white-50">© 2022. All Rights Reserved.</small></p>
+                    <p class=""><small class="text-white-50">© 2023. All Rights Reserved.</small></p>
                 </div>
             </div>
         </div>

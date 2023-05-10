@@ -173,7 +173,7 @@ class RedeemController extends Controller
             ->first();
 
         $customer->point = $customer->point + $oldRedeem;
-       
+
         $customer->save();
 
         $reward = Reward::where('id', $request->reward_id)
@@ -244,28 +244,28 @@ class RedeemController extends Controller
             ->first();
 
         $customer->point = $customer->point + $oldRedeem;
-       
+
         $customer->save();
 
-        if ($redeem->status === 'pending'){
+        if ($redeem->status === 'pending') {
             $redeem->update(['status' => 'canceled']);
             return redirect()->route('redeems.index');
         } else {
             $redeem->update(['status' => 'canceled']);
             return redirect()->route('redeems.index');
         }
-        
+
         return redirect()->route('redeems.index')
-        ->with('success', 'Redeem canceled successfully.');
+            ->with('success', 'Redeem canceled successfully.');
     }
 
     public function updateStatus($id)
     {
         $redeem = Redeem::find($id);
-        
+
         // dd($redeem->id);
 
-        if ($redeem->status === 'pending'){
+        if ($redeem->status === 'pending') {
             $redeem->update(['status' => 'success']);
             return redirect()->route('redeems.index');
         } else {
@@ -273,7 +273,7 @@ class RedeemController extends Controller
             return redirect()->route('redeems.index');
         }
         return redirect()->route('redeems.index')
-        ->with('success', 'Status updated successfully.');
+            ->with('success', 'Status updated successfully.');
     }
 
     public function generateUniqueCode()
@@ -281,7 +281,7 @@ class RedeemController extends Controller
         do {
             $code = random_int(10000, 99999);
         } while (Redeem::where("code", "=", $code)->first());
-  
+
         return $code;
     }
 }

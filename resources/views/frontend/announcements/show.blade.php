@@ -52,36 +52,41 @@
 
                 </div>
 
-                <div class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Confirmation</h3>
-                            <span id="close-modal">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{ route('frontannouncements.store') }}" method="POST">
-                                @csrf
-                                <p>Are you sure to redeem this reward?</p>
-                                <p>Claim: {{ $announcement->reward->name }}</p>
-                                <p>Cost: {{ $announcement->reward->point }} points</p>
+                @if (is_null($customer))
+                @else
+                    <div class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Confirmation</h3>
+                                <span id="close-modal">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('frontannouncements.store') }}" method="POST">
+                                    @csrf
+                                    <p>Are you sure to redeem this reward?</p>
+                                    <p>Claim: {{ $announcement->reward->name }}</p>
+                                    <p>Cost: {{ $announcement->reward->point }} points</p>
 
-                                @forelse($points as $point)
-                                    <p>Your current point: {{ $point->point }} points</p>
-                                @empty
-                                    <p>Your current point: 0 points</p>
-                                @endforelse
+                                    @forelse($points as $point)
+                                        <p>Your current point: {{ $point->point }} points</p>
+                                    @empty
+                                        <p>Your current point: 0 points</p>
+                                    @endforelse
 
-                                <input type="text" value="{{ $announcement->reward->id }}" name="reward_id" hidden>
-                                <input type="text" value="{{ $announcement->company->id }}" name="company_id" hidden>
-                                <input type="text" value="{{ $customer->id }}" name="customer_id" hidden>
+                                    <input type="text" value="{{ $announcement->reward->id }}" name="reward_id" hidden>
+                                    <input type="text" value="{{ $announcement->company->id }}" name="company_id"
+                                        hidden>
+                                    <input type="text" value="{{ $customer->id }}" name="customer_id" hidden>
 
-                                <button class="btn btn-primary float-end" style="border-radius: 3rem"
-                                    type="submit">Submit</button>
+                                    <button class="btn btn-primary float-end" style="border-radius: 3rem"
+                                        type="submit">Submit</button>
 
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
             </section>
         </main>
     </section>

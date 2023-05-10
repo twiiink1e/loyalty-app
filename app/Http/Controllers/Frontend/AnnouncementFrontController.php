@@ -28,9 +28,9 @@ class AnnouncementFrontController extends Controller
         $current_date = Carbon::now();
 
         $announcements = Announcement::select()
-        ->whereDate('expire', '>', $current_date)
-        ->orderBy('id', 'DESC')
-        ->get();
+            ->whereDate('expire', '>', $current_date)
+            ->orderBy('id', 'DESC')
+            ->get();
 
         $companies = Company::get();
 
@@ -61,7 +61,7 @@ class AnnouncementFrontController extends Controller
             // 'status' => 'required',
         ]);
 
-        $phone=Auth::user()->phone;
+        $phone = Auth::user()->phone;
 
         $reward = Reward::where('id', $request->reward_id)
             ->first();
@@ -69,16 +69,16 @@ class AnnouncementFrontController extends Controller
         $credit = $reward->point;
 
         $customer = Point::select()
-            ->where(function($query) use ($phone){
-                $query->whereHas('customer', function($query) use ($phone){
-                    $query->where('phone', 'like', '%'.$phone.'%');
+            ->where(function ($query) use ($phone) {
+                $query->whereHas('customer', function ($query) use ($phone) {
+                    $query->where('phone', 'like', '%' . $phone . '%');
                 });
             })
 
             ->where('company_id', $request->company_id)
             ->first();
-        
-            // dd($customer);
+
+        // dd($customer);
 
         if (($customer->point - $credit) <= -1) {
             $user = Auth::user();
@@ -101,8 +101,6 @@ class AnnouncementFrontController extends Controller
             $data['companies'] = $companies;
 
             return  redirect()->back()->with('success', 'Sorry, you do not have enough point');
-
-
         }
 
         $customer->point = $customer->point - $credit;
@@ -122,8 +120,6 @@ class AnnouncementFrontController extends Controller
 
         return redirect()->route('histories.index')
             ->with('success', 'Redeem created successfully.');
-
-
     }
 
     /**
@@ -141,29 +137,28 @@ class AnnouncementFrontController extends Controller
         $company = $announcement->company->id;
         // dd($company);
 
-        $phone=Auth::user()->phone;
+        $phone = Auth::user()->phone;
 
         $points = Point::select()
-        ->where('company_id', '=', $company)
+            ->where('company_id', '=', $company)
 
-        ->where(function($query) use ($phone){
-            $query->whereHas('customer', function($query) use ($phone){
-                $query->where('phone', 'like', '%'.$phone.'%');
-            });
-        })
+            ->where(function ($query) use ($phone) {
+                $query->whereHas('customer', function ($query) use ($phone) {
+                    $query->where('phone', 'like', '%' . $phone . '%');
+                });
+            })
 
-        ->get();
+            ->get();
 
-        $customer=Customer::select()
-        ->where('phone', $phone)
-        ->first();
+        $customer = Customer::select()
+            ->where('phone', $phone)
+            ->first();
 
         // dd($customer);
 
         // dd($point->point);
 
         return view('frontend.announcements.show', compact('announcement', 'points', 'customer'));
-
     }
 
     /**
@@ -204,7 +199,7 @@ class AnnouncementFrontController extends Controller
     {
 
         // dd($request->all());
-        
+
         $current_date = Carbon::now();
 
         $companies = Company::get();
@@ -219,37 +214,36 @@ class AnnouncementFrontController extends Controller
 
         $announcements = Announcement::select()
 
-        ->whereDate('expire', '>', $current_date)
+            ->whereDate('expire', '>', $current_date)
 
-        ->where(function($query) use ($inputSelect){
-            if ($inputSelect){
-             $query->where('company_id', $inputSelect);
-            }
-         })  
+            ->where(function ($query) use ($inputSelect) {
+                if ($inputSelect) {
+                    $query->where('company_id', $inputSelect);
+                }
+            })
 
 
-        ->where(function($query) use ($inputSearch){
-            $query->whereHas('reward', function($query) use ($inputSearch){
-                $query->where('name', 'like', '%'.$inputSearch.'%');
-            });
-        })
+            ->where(function ($query) use ($inputSearch) {
+                $query->whereHas('reward', function ($query) use ($inputSearch) {
+                    $query->where('name', 'like', '%' . $inputSearch . '%');
+                });
+            })
 
-        ->orWhere(function($query) use ($inputSearch){
-           if ($inputSearch){
-            $query->where('topic', 'like', '%'.$inputSearch.'%');
-           }
-        })
-        
-        // ->orWhere(function($query) use ($inputSearch){
-        //     $query->whereHas('company', function($query) use ($inputSearch){
-        //         $query->where('name', 'like', '%'.$inputSearch.'%');
-        //     });
-        // })
+            ->orWhere(function ($query) use ($inputSearch) {
+                if ($inputSearch) {
+                    $query->where('topic', 'like', '%' . $inputSearch . '%');
+                }
+            })
 
-        ->get();
-    
+            // ->orWhere(function($query) use ($inputSearch){
+            //     $query->whereHas('company', function($query) use ($inputSearch){
+            //         $query->where('name', 'like', '%'.$inputSearch.'%');
+            //     });
+            // })
+
+            ->get();
+
         return view('frontend.announcements.index', compact('announcements', 'companies'), $data);
-        
     }
 
     public function generateUniqueCode()
@@ -257,7 +251,7 @@ class AnnouncementFrontController extends Controller
         do {
             $code = random_int(10000, 99999);
         } while (Redeem::where("code", "=", $code)->first());
-  
+
         return $code;
     }
 }

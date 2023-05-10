@@ -1,4 +1,3 @@
-
 @extends('layouts.adminapp')
 
 @section('content')
@@ -83,7 +82,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1">
-                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Total Announcement</span>
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Active Announcements</span>
                             <h4 class="mb-3">
                                 <span class="counter-value" data-target="{{ $announcementCount }}"></span>
                             </h4>
@@ -164,6 +163,9 @@
 
                                             <p class="mb-2">Address:</p>
                                             <h5 class="font-size-15">{{ $company->address }}</h5>
+
+                                                <p class="mb-2">Company Logo:</p>
+                                                <img src="/logos/{{ $company->logo }}" width="210px">
                                         @endforeach
                                     </div>
                                 </div>
@@ -311,13 +313,13 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="my-0"><i class="mdi mdi-gift-outline me-3"></i>Reward list<a
-                                            href="/admin/rewards" class="card-text float-end">View</a></h5>
+                                    <h5 class="my-0"><i class="mdi mdi-gift-outline me-3"></i>Redeems<a
+                                            href="/admin/redeems" class="card-text float-end">View</a></h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
+                        <div class="card-body" height="200">
+                            {{-- <div class="table-responsive">
                                 <table class="table mb-0">
 
                                     <thead>
@@ -339,7 +341,10 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> --}}
+
+                            <canvas id="myChart" ></canvas>
+
 
                         </div><!-- end card body -->
 
@@ -351,7 +356,36 @@
 
         </div><!-- end col -->
 
-    </div> <!-- end row -->
 
+    </div> <!-- end row -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        var reward = <?php echo $reward_name ?>;
+        var data_count = <?php echo $count_redeems ?>;
+
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: reward,
+                datasets: [{
+                    label: '# of Redeem',
+                    data: data_count,
+                    borderWidth: 1,
+                    barThickness: 60,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 
 @endsection

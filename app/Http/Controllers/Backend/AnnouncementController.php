@@ -19,9 +19,9 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $user= Auth::user();
-        $company= $user->company;
-        $announcements= $company ? $company->announcements()->get() : [];
+        $user = Auth::user();
+        $company = $user->company;
+        $announcements = $company ? $company->announcements()->get() : [];
 
         return view('backend.announcements.index', compact('announcements'));
     }
@@ -33,17 +33,17 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        $id=Auth::user()->id;
+        $id = Auth::user()->id;
 
         $companies = Company::select()
-        
-        ->where('user_id', '=', $id)
 
-        ->get();
-        
-        $user= Auth::user();
-        $company= $user->company;
-        $rewards= $company ? $company->rewards()->get() : [];
+            ->where('user_id', '=', $id)
+
+            ->get();
+
+        $user = Auth::user();
+        $company = $user->company;
+        $rewards = $company ? $company->rewards()->get() : [];
 
         return view('backend.announcements.create', compact('companies', 'rewards'));
     }
@@ -63,7 +63,7 @@ class AnnouncementController extends Controller
         ]);
 
         $input = $request->all();
-  
+
         if ($thumbnail = $request->file('thumbnail')) {
             $destinationPath = 'thumbnails/';
             $coverImage = date('YmdHis') . "." . $thumbnail->getClientOriginalExtension();
@@ -72,11 +72,11 @@ class AnnouncementController extends Controller
         }
 
         // dd($input);
-    
+
         Announcement::create($input);
-     
+
         return redirect()->route('announcements.index')
-                        ->with('success','Announcement created successfully.');
+            ->with('success', 'Announcement created successfully.');
     }
 
     /**
@@ -100,17 +100,17 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        $id=Auth::user()->id;
+        $id = Auth::user()->id;
 
         $companies = Company::select()
-        
-        ->where('user_id', '=', $id)
 
-        ->get();
-        
-        $user= Auth::user();
-        $company= $user->company;
-        $rewards= $company ? $company->rewards()->get() : [];
+            ->where('user_id', '=', $id)
+
+            ->get();
+
+        $user = Auth::user();
+        $company = $user->company;
+        $rewards = $company ? $company->rewards()->get() : [];
 
         return view('backend.announcements.edit', compact('announcement', 'rewards', 'companies'));
     }
@@ -127,7 +127,7 @@ class AnnouncementController extends Controller
         $request->validate([
             'topic' => 'required',
             'description' => 'required',
-            
+
         ]);
 
         $input = $request->all();
@@ -137,14 +137,14 @@ class AnnouncementController extends Controller
             $coverImage = date('YmdHis') . "." . $thumbnail->getClientOriginalExtension();
             $thumbnail->move($destinationPath, $coverImage);
             $input['thumbnail'] = "$coverImage";
-        }else{
+        } else {
             unset($input['thumbnail']);
         }
-          
+
         $announcement->update($input);
 
         return redirect()->route('announcements.index')
-        ->with('success','Announcement updated successfully.');
+            ->with('success', 'Announcement updated successfully.');
     }
 
     /**
@@ -158,6 +158,6 @@ class AnnouncementController extends Controller
         $announcement->delete();
 
         return redirect()->route('announcements.index')
-        ->with('success', 'Announcement deleted successfully');
+            ->with('success', 'Announcement deleted successfully');
     }
 }

@@ -55,7 +55,9 @@
 
                     @empty 
 
-                    <img src="https://www.itinerantnotes.com/blog-theme/images/empty.gif" alt="">
+                    <div class="d-flex justify-content-center">
+                        <img src="assets/images/empty2.png" alt="noresult" style="width: 80%">
+                    </div>
 
                 @endforelse
             </div>
