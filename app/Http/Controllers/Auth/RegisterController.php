@@ -80,11 +80,17 @@ class RegisterController extends Controller
 
         $userID = $user->id;
 
+        $image = $data['logo'];
+        $filename=time().'.'.$image->getClientOriginalExtension();
+        $data['logo']->move('logos',$filename);
+
+
             Company::create([
                 'user_id' => $userID,
-                'name' => "...",
-                'phone' => "...",
-                'address' => "...",
+                'name' =>  $data['company-name'],
+                'phone' =>  $data['phone'],
+                'address' =>  $data['company-address'],
+                'logo' => $filename,
             ]);
 
         return $user;

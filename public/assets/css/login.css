@@ -1,6 +1,7 @@
 .login-form .card {
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .login-form .card .shape {
@@ -49,17 +50,18 @@
     border: 1px solid #3F8EFC;
 }
 
-.login-form .card .card-body .btn {
+
+/* .login-form .card .card-body .btn {
     background: #3F8EFC;
     color: #fff;
     height: 47px;
     width: 100%;
     border-radius: 10px;
     font-size: 16px;
-}
+} */
 
 .login-form .card .card-body .btn:hover {
-    background: #004492;
+    background: #3a89e2;
     color: #fff;
 }
 
@@ -115,4 +117,115 @@
     .input-icon2 {
         display: none;
     }
+}
+
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
+
+/* .container {
+    text-align: center;
+} */
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+    z-index: 999;
+}
+
+.progress-container::before {
+    content: "";
+    /* must be added when using the ::before pseudoselector */
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* centers the line vertically along the y-axis */
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.circle {
+    font-size: 16px;
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+    transition: 0.4s ease;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btn1 {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 16px auto;
+    height: 40px;
+    width: 100%;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn1:active {
+    transform: scale(0.98);
+}
+
+.btn1:focus {
+    outline: 0;
+}
+
+.btn1:disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
+
+
+/* /////////////////////// input /////////////////// */
+
+.holder {
+    height: 300px;
+    width: 300px;
+    /* border: 2px solid black; */
+}
+
+.logo-img {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+input[type="file"] {
+    margin-top: 5px;
 }

@@ -11,10 +11,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
                     <div class="card shadow-sm">
-                        <span class="shape"></span>
+
+                        {{-- <span class="shape"></span> --}}
+                        
                         <div class="card-header text-center bg-transparent">
                             <img src="{{ asset('assets/images/logo2.png') }}" alt="" style="margin-right: 30px">
                         </div>
+                        
                         <div class="card-body py-4">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf @if (session('status'))
@@ -71,7 +74,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn">Log In</button>
+                                    <button type="submit" class="btn1">Log In</button>
                                 </div>
                             </form>
                         </div>

@@ -165,7 +165,7 @@
                                             <h5 class="font-size-15">{{ $company->address }}</h5>
 
                                                 <p class="mb-2">Company Logo:</p>
-                                                <img src="/logos/{{ $company->logo }}" width="210px">
+                                                <img src="/logos/{{ $company->logo }}" style="max-height: 170px">
                                         @endforeach
                                     </div>
                                 </div>

@@ -52,22 +52,19 @@
                                                 @endforeach
                                             </select>
 
-                                            <label for="horizontal-firstname-input" class="col-sm-4 col-form-label">Customer
-                                                Name</label>
+                                            <label for="horizontal-firstname-input" class="col-sm-4 col-form-label">Name</label>
                                             <div class="col-sm-12 mb-3">
                                                 <input type="text" class="form-control" id="horizontal-firstname-input"
                                                     placeholder="Enter customer name" name="name" required>
                                             </div>
 
-                                            <label for="horizontal-firstname-input" class="col-sm-6 col-form-label">Customer
-                                                Phone Number</label>
+                                            <label for="horizontal-firstname-input" class="col-sm-6 col-form-label">Phone Number</label>
                                             <div class="col-sm-12 mb-3">
                                                 <input type="text" class="form-control" id="horizontal-firstname-input"
                                                     placeholder="Enter customer number" name="phone" required>
                                             </div>
 
-                                            <label for="horizontal-firstname-input" class="col-sm-4 col-form-label">Customer
-                                                Address</label>
+                                            <label for="horizontal-firstname-input" class="col-sm-4 col-form-label">Address</label>
                                             <div class="col-sm-12 mb-3">
                                                 <input type="text" class="form-control" id="horizontal-firstname-input"
                                                     placeholder="Enter customer address" name="address" required>
