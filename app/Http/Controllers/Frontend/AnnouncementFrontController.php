@@ -28,7 +28,7 @@ class AnnouncementFrontController extends Controller
         $current_date = Carbon::now();
 
         $announcements = Announcement::select()
-            ->whereDate('expire', '>', $current_date)
+            ->whereDate('expire', '>=', $current_date)
             ->orderBy('id', 'DESC')
             ->get();
 
@@ -214,7 +214,7 @@ class AnnouncementFrontController extends Controller
 
         $announcements = Announcement::select()
 
-            ->whereDate('expire', '>', $current_date)
+            ->whereDate('expire', '>=', $current_date)
 
             ->where(function ($query) use ($inputSelect) {
                 if ($inputSelect) {

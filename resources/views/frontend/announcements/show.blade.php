@@ -78,8 +78,13 @@
                                         hidden>
                                     <input type="text" value="{{ $customer->id }}" name="customer_id" hidden>
 
+                                    <br>
+
                                     <button class="btn btn-primary float-end" style="border-radius: 3rem"
-                                        type="submit">Submit</button>
+                                        type="submit">Confrim</button>
+
+                                    <button id="cancel-btn" class="btn btn-secondary float-end" style="border-radius: 3rem; border: none; margin-right: 10px"
+                                        type="button">Cancel</button>
 
                                 </form>
                             </div>
@@ -95,12 +100,17 @@
         const modal = document.querySelector(".modal");
         const openModalBtn = document.querySelector("#open-modal");
         const closeModalBtn = document.querySelector("#close-modal");
+        const cancelModalBtn = document.querySelector("#cancel-btn");
 
         openModalBtn.addEventListener("click", function() {
             modal.style.display = "block";
         });
 
         closeModalBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        cancelModalBtn.addEventListener("click", function() {
             modal.style.display = "none";
         });
     </script>

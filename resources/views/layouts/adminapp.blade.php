@@ -13,7 +13,7 @@
     <title>Loyalty App</title>
 
 
-    <link rel="shortcut icon" href="{{ asset('assets/images/newlogo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/rounded.png') }}">
 
     <!-- plugin css -->
     <link href="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet"

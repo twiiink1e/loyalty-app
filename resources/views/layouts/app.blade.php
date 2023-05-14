@@ -10,7 +10,8 @@
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <title>Loyalty App</title>
-    <link rel="icon" href="{{ asset('assets/images/logo2.png') }}" type="image/jpg" />
+
+    <link rel="icon" href="{{ asset('assets/images/rounded.png') }}" type="image/jpg" />
 
 
     <!-- Fonts -->

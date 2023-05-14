@@ -120,17 +120,20 @@
                                 </div>
 
                                 <div class="logo-form" id="logo" hidden style="padding-bottom: 20px">
+
+                                    <div class="d-flex justify-content-center">
+                                        <h5>Upload your company logo</h5>
+                                    </div>
+
                                     <div class="form-control">
                                         <div class="d-flex justify-content-center">
                                             <div class="holder">
                                                 <img class="logo-img" id="imgPreview"
                                                     src="assets/images/upload.png"
                                                     alt="pic" />
-                                            </div>
+                                            </div>                              
                                         </div>
-
-                                        <input type="file" name="logo" id="photo" required="true" style="width: 100%"/>
-
+                                        <input type="file" name="logo" id="photo" required="true" style="width: 100%" />                                      
                                     </div>
                                 </div>
 

@@ -214,16 +214,16 @@
 /* /////////////////////// input /////////////////// */
 
 .holder {
-    height: 300px;
-    width: 300px;
+    height: 205px;
+    width: 205px;
     /* border: 2px solid black; */
 }
 
 .logo-img {
-    max-width: 300px;
-    max-height: 300px;
-    min-width: 300px;
-    min-height: 300px;
+    max-width: 205px;
+    max-height: 205px;
+    min-width: 205px;
+    min-height: 205px;
 }
 
 input[type="file"] {

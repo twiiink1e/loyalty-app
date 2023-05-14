@@ -93,13 +93,12 @@
             <div class="announcement-web" style="margin-top: 30px">
                 @forelse ($announcements as $announcement)
                     <a href="{{ route('frontannouncements.show', $announcement->id) }}" class="projcard-container">
-
                         <div class="projcard projcard-blue">
                             <div class="projcard-innerbox">
                                 <img class="projcard-img" src="/thumbnails/{{ $announcement->thumbnail }}" />
                                 <div class="projcard-textbox">
-                                    <div class="projcard-title">{{ $announcement->company->name }}</div>
-                                    <div class="projcard-subtitle">{{ $announcement->topic }}</div>
+                                    <div class="projcard-title">{{ $announcement->topic }}</div>
+                                    <div class="projcard-subtitle">{{ $announcement->company->name }}</div>
                                     <div class="projcard-bar"></div>
                                     <div class="projcard-subtitle">Reward: {{ $announcement->reward->name }}</div>
                                     <div class="projcard-description">{{ $announcement->description }}</div>
@@ -113,7 +112,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </a>
 
                 @empty

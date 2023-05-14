@@ -12,7 +12,7 @@
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="icon" href="{{ asset('assets/images/logo2.png') }}" type="image/jpg" />
+    <link rel="icon" href="{{ asset('assets/images/rounded.png') }}" type="image/jpg" />
 
     <!-- favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
