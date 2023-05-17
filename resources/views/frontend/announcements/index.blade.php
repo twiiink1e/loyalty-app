@@ -18,9 +18,9 @@
                         <form id="searchthis" action="{{ route('announcements.search') }}" style="display:inline;"
                             method="get">
                             <span>
-                                <select class="form-control select2" style="width: 200px;" tabindex="-1" aria-hidden="true"
+                                <select class="form-control select2" style="width: 220px;" tabindex="-1" aria-hidden="true"
                                     name="inputSelect">
-                                    <option value="">Search Company</option>
+                                    <option value="">Select Company</option>
 
                                     @foreach ($companies as $company)
                                         @if ($company->name == '...')

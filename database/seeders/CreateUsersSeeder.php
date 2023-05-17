@@ -16,12 +16,12 @@ class CreateUsersSeeder extends Seeder
     public function run()
     {
         $users = [
-            [
-               'name'=>'Admin User',
-               'email'=>'admin@gmail.com',
-               'type'=>1,
-               'password'=> bcrypt('12345678'),
-            ],
+            // [
+            //    'name'=>'Admin User',
+            //    'email'=>'admin@gmail.com',
+            //    'type'=>1,
+            //    'password'=> bcrypt('12345678'),
+            // ],
 
             // [
             //    'name'=>'User',
@@ -29,6 +29,13 @@ class CreateUsersSeeder extends Seeder
             //    'type'=>0,
             //    'password'=> bcrypt('123456'),
             // ],
+
+            [
+                'name'=>'Manager User',
+                'email'=>'manager@gmail.com',
+                'type'=> 2,
+                'password'=> bcrypt('1111'),
+             ],
         ];
     
         foreach ($users as $key => $user) {

@@ -7,7 +7,7 @@
         </button>
     </a>
 
-    <div class="login-form py-4" style="margin-top: 60px">
+    <div class="login-form py-4" style="margin-top: 0px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">

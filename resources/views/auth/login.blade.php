@@ -6,7 +6,7 @@
             <i class='bx bx-home'></i>
         </button>
     </a>
-    <div class="login-form py-4" style="margin-top: 150px">
+    <div class="login-form py-4" style="margin-top: 100px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">

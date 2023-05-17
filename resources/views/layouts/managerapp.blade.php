@@ -10,7 +10,7 @@
 
     {{-- <title>{{ config('app.name', 'Loyalty App') }}</title> --}}
 
-    <title>Loyalty App Admin</title>
+    <title>Loyalty App Manager</title>
 
 
     <link rel="shortcut icon" href="{{ asset('assets/images/rounded.png') }}">
@@ -184,22 +184,22 @@
                         <li class="menu-title" data-key="t-menu">Menu</li>
 
                         <li>
-                            <a href="{{ route('admin.home') }}">
-                                <i data-feather="home"></i>
-                                {{-- <span class="badge rounded-pill bg-soft-success text-success float-end">9+</span> --}}
-                                <span data-key="t-dashboard">Dashboard</span>
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <a href="/admin/customers">
+                            <a href="{{ route('manager.home') }}">
                                 <i data-feather="user"></i>
-                                <span data-key="t-chat">Customer</span>
+                                {{-- <span class="badge rounded-pill bg-soft-success text-success float-end">9+</span> --}}
+                                <span data-key="t-user">User</span>
                             </a>
                         </li>
 
+
                         <li>
+                            <a href="/manager/companies">
+                                <i data-feather="shopping-cart"></i>
+                                <span data-key="t-company">Company</span>
+                            </a>
+                        </li>
+
+                        {{-- <li>
                             <a href="/admin/calculations">
                                 <i data-feather="list"></i>
                                 <span data-key="t-chat">Payment</span>
@@ -234,7 +234,7 @@
                                 <i data-feather="bookmark"></i>
                                 <span data-key="t-bookmark">Redeem</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                     </ul>
 

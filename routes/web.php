@@ -19,6 +19,8 @@ use App\Http\Controllers\Frontend\HomeFrontController;
 use App\Http\Controllers\Frontend\PasswordController;
 use App\Http\Controllers\Frontend\PointFrontController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Controllers\Manager\CompanyManagerController;
+use App\Http\Controllers\Manager\UserManagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,5 +125,9 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
   
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+
+    Route::resource('/manager/companies', CompanyManagerController::class);
+    
+    // Route::get('/manager/companies', [HomeController::class, 'managerCompany'])->name('manager.companies');
 });
  

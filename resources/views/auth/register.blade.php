@@ -7,7 +7,7 @@
         </button>
     </a>
 
-    <div class="login-form py-4" style="margin-top: 50px">
+    <div class="login-form py-4" style="margin-top: 0px">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -17,7 +17,8 @@
                         <div class="card-header text-center bg-transparent">
 
                             <img src="{{ asset('assets/images/logo2.png') }}" alt="" style="margin-right: 30px">
-                            <h5 style="text-decoration: underline; color: #002B5B; font-weight: bold;">Merchant Register</h5>
+                            <h5 style="text-decoration: underline; color: #002B5B; font-weight: bold;">Merchant Register
+                            </h5>
 
                         </div>
                         <div class="card-body py-4">
@@ -100,22 +101,24 @@
 
                                 <div class="company-form" id="company" hidden>
                                     <div class="form-group">
-                                        <label for="phone">Company Phone</label>
-                                        <input id="phone" type="text"
-                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                            value="{{ old('phone') }}" placeholder="Enter Company Number">
+                                        <label for="company-name">Company Name</label>
+                                        <input id="company-name" type="text" class="form-control" name="company-name"
+                                            value="{{ old('company-name') }}" placeholder="Enter company name">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="company-name">Company Name</label>
-                                        <input id="company-name" type="text" class="form-control" name="company-name"
-                                            value="{{ old('company-name') }}" placeholder="Enter Company Name">
+                                        <label for="phone">Company Phone</label>
+                                        <input id="phone" type="text"
+                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                            value="{{ old('phone') }}" placeholder="Enter company phone number">
                                     </div>
+
+
                                     <div class="form-group" style="padding-bottom: 20px">
                                         <label for="company-address">Company Address</label>
                                         <input id="company-address" type="text" class="form-control"
                                             name="company-address" value="{{ old('company-address') }}"
-                                            placeholder="Enter Company address">
+                                            placeholder="Enter company address">
                                     </div>
                                 </div>
 
@@ -128,12 +131,12 @@
                                     <div class="form-control">
                                         <div class="d-flex justify-content-center">
                                             <div class="holder">
-                                                <img class="logo-img" id="imgPreview"
-                                                    src="assets/images/upload.png"
+                                                <img class="logo-img" id="imgPreview" src="assets/images/upload.png"
                                                     alt="pic" />
-                                            </div>                              
+                                            </div>
                                         </div>
-                                        <input type="file" name="logo" id="photo" required="true" style="width: 100%" />                                      
+                                        <input type="file" name="logo" id="photo" required="true"
+                                            style="width: 100%" />
                                     </div>
                                 </div>
 
@@ -164,7 +167,6 @@
             </div>
         </div>
     </div>
-
 
     <script>
         const progress = document.getElementById("progress");

@@ -1,14 +1,13 @@
-@extends('layouts.adminapp')
+@extends('layouts.managerapp')
 @section('content')
-    <!-- start page title -->
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                        <li class="breadcrumb-item active">Announcements</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Manager</a></li>
+                        <li class="breadcrumb-item active">company</li>
                     </ol>
                 </div>
 
@@ -22,13 +21,13 @@
             <div class="card">
                 <div class="card-header">
                     {{-- <h4 class="card-title">Datatable</h4> --}}
-                    <h4 class="mb-sm-0 font-size-18">Announcements</h4>
+                    <h4 class="mb-sm-0 font-size-18">Companies</h4>
 
-                    <a href="{{ route('announcements.create') }}">
-                        <button type="button" class="btn btn-primary waves-effect waves-light"
-                            style="float: right; margin-top: -25px"><i data-feather="plus-circle"
-                                class="icon-lg"></i>&emsp;Create announcement</button>
-                    </a>
+                    {{-- <a href="{{ route('companys.create') }}">
+                    <button type="button" class="btn btn-primary waves-effect waves-light"
+                        style="float: right; margin-top: -25px"><i data-feather="plus-circle"
+                            class="icon-lg"></i>&emsp;Create company</button>
+                </a> --}}
 
                     <div class="mt-4">
                         @if ($message = Session::get('success'))
@@ -48,38 +47,38 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th style="width: 100px">Thumbnail</th>
-                                <th>Reward</th>
-                                <th>Topic</th>
-                                <th>Expire Date</th>
+                                <th style="width: 70px">Image</th>
+                                <th>Name</th>
+                                <th>Owner</th>
+                                <th>Phone</th>
+                                <th>Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($announcements as $announcement)
-
-                            @include('backend.announcements.show')
-
+                            @foreach ($companies as $company)
+                                @include('manager.companies.show')
                                 <tr>
-                                    <td>{{ $announcement->id }}</td>
-                                    <td><img src="/thumbnails/{{ $announcement->thumbnail }}" width="100px"></td>
-                                    <td>{{ $announcement->reward->name }}</td>
-                                    <td>{{ $announcement->topic }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($announcement->expire)->format('d/m/Y') }}</td>
-
+                                    <td>{{ $company->id }}</td>
                                     <td>
-                                        <form action="{{ route('announcements.destroy', $announcement->id) }}"
-                                            method="POST">
+                                        <img src="/logos/{{ $company->logo }}" width="70px">
+                                    </td>
+                                    <td>{{ $company->name }}</td>
+                                    <td>{{ $company->user->name }}</td>
+                                    <td>{{ $company->phone }}</td>
+                                    <td>{{ $company->address }}</td>
+                                    <td>
+                                        <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
 
                                             <a class="btn btn-outline-secondary btn-sm edit" title="View"
-                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{ $announcement->id }}"
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdropl{{ $company->id }}"
                                                 style="cursor: pointer">
                                                 <i class=" fas fa-eye"></i>
                                             </a>
 
                                             <a class="btn btn-outline-secondary btn-sm edit" title="Edit"
-                                                href="{{ route('announcements.edit', $announcement->id) }}">
+                                                href="{{ route('companies.edit', $company->id) }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
 
@@ -91,16 +90,13 @@
                                                 class="btn btn-outline-secondary btn-sm btn-default show-alert-delete-box "
                                                 data-toggle="tooltip" title='Delete'><i
                                                     class='fas fa-trash-alt'></i></button>
-                                            {{-- <a class="btn btn-outline-secondary btn-sm edit" title="Delete">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a> --}}
+                                                    
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div> <!-- end col -->

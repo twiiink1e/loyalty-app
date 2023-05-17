@@ -42,6 +42,7 @@
     /* border: 1px solid #aaa; */
     background: #eeeeee;
     border-radius: 10px;
+    border: none;
 }
 
 .login-form .card .card-body input:focus,
@@ -60,8 +61,9 @@
     font-size: 16px;
 } */
 
-.login-form .card .card-body .btn:hover {
-    background: #3a89e2;
+.login-form .card .card-body .btn:hover,
+.back_button:hover {
+    background: #66aeff;
     color: #fff;
 }
 
@@ -86,7 +88,7 @@
     width: 80px;
     vertical-align: top;
     display: inline-block;
-    margin: -38px 0px 0px 370px;
+    margin: -35px 0px 0px 370px;
     cursor: pointer;
 }
 
@@ -95,7 +97,7 @@
     margin-left: 50px;
     width: 70px;
     height: 47px;
-    position: absolute;
+    position: relative;
     color: white;
     background: #3F8EFC;
     border-radius: 10px;
@@ -120,7 +122,7 @@
 }
 
 :root {
-    --line-border-fill: #3498db;
+    --line-border-fill: #3F8EFC;
     --line-border-empty: #e0e0e0;
 }
 
@@ -201,6 +203,12 @@
     transform: scale(0.98);
 }
 
+.btn1:hover {
+    background-color: #66aeff;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+}
+
 .btn1:focus {
     outline: 0;
 }
@@ -227,5 +235,5 @@
 }
 
 input[type="file"] {
-    margin-top: 5px;
+    margin-top: 0px;
 }

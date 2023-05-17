@@ -152,7 +152,7 @@
                             <div class="text-center subscribe-form mt-5">
                                 <form action="{{ route('announcements.search') }}" method="get">
                                     <input type="text" class="control-form" id="inputemail"
-                                        placeholder="Find your favorite store" name="inputSearch">
+                                        placeholder="Find your favorite reward" name="inputSearch">
                                     <button type="submit" class="btn btn-primary">Search</button>
                                 </form>
                             </div>

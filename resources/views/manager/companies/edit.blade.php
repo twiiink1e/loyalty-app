@@ -1,4 +1,4 @@
-@extends('layouts.adminapp')
+@extends('layouts.managerapp')
 @section('content')
     <!-- start page title -->
     <div class="row">
@@ -9,7 +9,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                        <li class="breadcrumb-item active">Compnay Information</li>
+                        <li class="breadcrumb-item active">Company Information</li>
                     </ol>
                 </div>
 
@@ -23,6 +23,12 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Form Input</h4>
+                    <p class="card-title-desc">Fill all information below</p>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body p-4">
                     <form action="{{ route('companies.update', $company->id) }}" method="POST"
@@ -32,8 +38,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div>
-                                    <input class="form-control" type="text" value="{{ Auth::user()->id }}"
-                                        id="example-text-input" placeholder="Enter your company" name="user_id" hidden>
+                                    {{-- <input class="form-control" type="text" value="{{ Auth::user()->id }}"
+                                        id="example-text-input" placeholder="Enter your company" name="user_id" hidden> --}}
 
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Company Name</label>
@@ -73,7 +79,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> <!-- end col -->
     </div>
-    <!-- end col -->
+    <!-- end row -->
 @endsection

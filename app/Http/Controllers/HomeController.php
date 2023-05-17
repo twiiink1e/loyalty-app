@@ -6,6 +6,7 @@ use App\Models\Announcement;
 use App\Models\Company;
 use App\Models\Redeem;
 use App\Models\Reward;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -58,10 +59,15 @@ class HomeController extends Controller
         $rewards = $company ? $company->rewards()->get() : [];
         $calculations = $company ? $company->calculation()->get() : [];
 
+        // dd($rewards);
+
         $reward_name = $rewards->toArray();
+
+        // dd($reward_name);
+    
         $reward_name = array_column($reward_name, 'name');
 
-        // dd($rewards);
+        // dd($reward_name);
 
         $company_id = $company->id;
 
@@ -102,6 +108,9 @@ class HomeController extends Controller
      */
     public function managerHome()
     {
-        return view('managerHome');
+        $users = User::select()
+        ->where('type', '!=', '2')
+        ->get();
+        return view('manager.users.index', compact('users'));
     }
 }

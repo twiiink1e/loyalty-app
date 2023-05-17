@@ -130,6 +130,15 @@
         border: none;
         border-bottom: 1px solid rgb(195, 195, 195);
     }
+
+    .logo-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 </style>
 
 @section('content')
@@ -143,12 +152,15 @@
                             <h3>{{ $user->email }}</h3>
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" id="photo" accept=".png, .jpg, .jpeg" />
+                                    {{-- <input type="file" name="logo" id="photo" required="true" style="width: 100%" />                                       --}}
+
                                     <label for="imageUpload"></label>
                                 </div>
                                 <div class="avatar-preview">
-                                    <div id="imagePreview"
-                                        style="background-image: url('https://img.myloview.com/stickers/default-avatar-profile-icon-vector-unknown-social-media-user-photo-400-209987478.jpg');">
+                                    <div id="imagePreview">
+                                        <img class="logo-img" id="imgPreview" src="{{ asset('assets/images/avatar1.png') }}"
+                                            alt="pic" />
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +200,7 @@
                                                 value="{{ $user->phone }}" disabled>
                                         </div>
                                     </div><br />
-                                    
+
                                 </div>
 
                                 <div class="card-footer" style="background-color: #fff">
@@ -203,4 +215,19 @@
         </div>
     </section>
 
+    <script>
+        $(document).ready(() => {
+            $("#photo").change(function() {
+                const file = this.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(event) {
+                        $("#imgPreview")
+                            .attr("src", event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
 @endsection
