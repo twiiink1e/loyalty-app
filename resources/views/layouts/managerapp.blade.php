@@ -67,7 +67,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="{{ route('admin.home') }}" class="logo logo-dark">
+                        <a href="{{ route('manager.home') }}" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="{{ asset('assets/images/newlogo.png') }}F" alt="" height="50">
                             </span>

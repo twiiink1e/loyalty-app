@@ -152,8 +152,8 @@
                             <h3>{{ $user->email }}</h3>
                             <div class="avatar-upload">
                                 <div class="avatar-edit">
-                                    <input type="file" id="photo" accept=".png, .jpg, .jpeg" />
-                                    {{-- <input type="file" name="logo" id="photo" required="true" style="width: 100%" />                                       --}}
+                                    {{-- <input type="file" id="photo" accept=".png, .jpg, .jpeg" /> --}}
+                                    {{-- <input type="file" name="logo" id="photo" required="true" style="width: 100%" /> --}}
 
                                     <label for="imageUpload"></label>
                                 </div>
@@ -163,10 +163,10 @@
                                             alt="pic" />
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
+
+                        {!! Form::password($name, [$options]) !!}
+                    </div>
                     <div class="col-md-8">
 
                         <div class="card">

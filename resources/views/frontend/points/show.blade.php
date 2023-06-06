@@ -25,7 +25,7 @@
                                 <thead class="table__thead">
                                     <tr>
                                         <th class="table__th">Company</th>
-                                        <th class="table__th">Payment</th>
+                                        <th class="table__th">Paid / Claimed</th>
                                         <th class="table__th">Point</th>
                                         <th class="table__th">Date</th>
                                         <th class="table__th">Status</th>

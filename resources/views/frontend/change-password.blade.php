@@ -7,7 +7,7 @@
         </button>
     </a>
     <section class="section">
-        <div class="login-form py-4" style="margin-top: 150px">
+        <div class="login-form py-4" style="margin-top: 80px">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
@@ -59,7 +59,7 @@
 
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn">Submit</button>
+                                        <button type="submit" class="btn btn-primary float-end">Submit</button>
                                     </div>
 
                                 </form>
