@@ -163,12 +163,11 @@
                                             alt="pic" />
                                     </div>
                                 </div>
-
-
-                        {!! Form::password($name, [$options]) !!}
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-8">
 
+                    <div class="col-md-8">
                         <div class="card">
                             <h1 style="text-align: left; margin-left: 10px">User Information</h1>
 

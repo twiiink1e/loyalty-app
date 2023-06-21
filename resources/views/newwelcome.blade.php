@@ -144,10 +144,8 @@
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6">
                         <div>
-                            <h1>Customer Loyalty Program
-                            </h1>
-                            <p class="text-black-50 fs-18 pt-4">This system is a very user friendly system to handle
-                                our needs for our clients and the Rewards Program that we offer to our clients.</p>
+                            <h1>Customer Loyalty Program</h1>
+                            <p class="text-black-50 fs-18 pt-4">We help ecommerce brands of all sizes acquire customers for less and maximize lifetime value with fully customizable programs.</p>
                             {{-- <p class="text-black-50 fs-17 pt-4">Look up for your loyalty point to redeem available reward in our store.</p> --}}
                             <div class="text-center subscribe-form mt-5">
                                 <form action="{{ route('announcements.search') }}" method="get">
@@ -161,8 +159,8 @@
                     <!--end col-->
                     <div class="col-lg-6 offset-xl-1">
                         <div class="mt-lg-0 mt-5">
-                            <img src="assets/front/images/new_bg.png" alt="home04" class="home-img"
-                                style="width: 150%">
+                            <img src="assets/front/images/bgbg.png" alt="home04" class="home-img"
+                                style="width: 120%; filter: drop-shadow(10px 10px 10px #0000004f););">
                         </div>
                     </div>
                 </div>
@@ -172,7 +170,7 @@
         <!--end container-->
     </section>
 
-    <div class="position-relative">
+    {{-- <div class="position-relative">
         <div class="shape overflow-hidden text-white position-absolute">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
                 style="width: 100%;" height="250" preserveAspectRatio="none" viewBox="0 0 1440 250">
@@ -186,7 +184,8 @@
                 </defs>
             </svg>
         </div>
-    </div>
+    </div> --}}
+
     <!-- END HOME -->
 
     <!-- START ANNOUNCEMENT -->
@@ -476,7 +475,7 @@
                         Phnom
                         Penh</p>
                     <br />
-                    <p class="mb-0" style="font-size: 14px"><i class='bx bxs-phone-call'></i>(+855) 12-123-456</p>
+                    <p class="mb-0" style="font-size: 14px"><i class='bx bxs-phone-call'></i>(+855) 12 123 456</p>
                     <br />
                     <p style="font-size: 14px"><i class='bx bx-envelope'></i>loyaltee@gmail.com</p>
                 </div>
