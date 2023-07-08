@@ -133,7 +133,7 @@
 
                                     <div class="mb-3">
                                         <label for="example-text-input" class="form-label">Total Payment</label>
-                                        <input class="form-control" type="number" value=""
+                                        <input class="form-control" type="text" value=""
                                             id="example-text-input" placeholder="Enter total payment" name="total">
                                     </div>
 

@@ -47,7 +47,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th style="width: 100px">Thumbnail</th>
                                 <th>Reward</th>
                                 <th>Topic</th>
@@ -57,12 +57,12 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($announcements as $announcement)
+                            @foreach ($announcements as $key => $announcement)
 
                             @include('backend.announcements.show')
 
                                 <tr>
-                                    <td>{{ $announcement->id }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td><img src="/thumbnails/{{ $announcement->thumbnail }}" width="100px"></td>
                                     <td>{{ $announcement->reward->name }}</td>
                                     <td>{{ $announcement->topic }}</td>

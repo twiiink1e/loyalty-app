@@ -54,7 +54,7 @@ class CalculationController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'main',
+            'main' => 'required|numeric|gt:0',
             'company_id',
         ]);
 

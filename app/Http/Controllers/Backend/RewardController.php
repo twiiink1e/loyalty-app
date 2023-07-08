@@ -54,7 +54,7 @@ class RewardController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'point' => 'required',
+            'point' => 'required|numeric|gt:0',
 
         ]);
 
@@ -114,7 +114,7 @@ class RewardController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'point' => 'required',
+            'point' => 'required|numeric|gt:0',
 
         ]);
 

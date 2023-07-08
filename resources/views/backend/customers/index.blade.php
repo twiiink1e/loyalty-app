@@ -43,7 +43,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Action</th>
@@ -53,11 +53,11 @@
 
                         <tbody>
 
-                            @foreach ($customers as $customer)
+                            @foreach ($customers as $key => $customer)
                             @include('backend.customers.show')
 
                                 <tr>
-                                    <td>{{ $customer->id }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->phone }}</td>
 

@@ -73,7 +73,7 @@ class PaymentController extends Controller
         
         $request->validate([
             'customer_id' => 'required',
-            'total' => 'required',
+            'total' => 'required|numeric|gt:0',
 
         ]);
 

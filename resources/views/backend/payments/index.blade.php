@@ -50,7 +50,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Customer Name</th>
                                 <th>Phone</th>
                                 <th>Total ($)</th>
@@ -59,10 +59,10 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($payments as $payment)
+                            @foreach ($payments as $key => $payment)
                             @include('backend.payments.show')
                                 <tr>
-                                    <td>{{ $payment->id }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>{{ $payment->customer->name }}</td>
                                     <td>{{ $payment->customer->phone }}</td>
                                     <td>{{ $payment->total }}</td>

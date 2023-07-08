@@ -47,7 +47,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th style="width: 100px">Image</th>
                                 <th>Name</th>
                                 <th>Point</th>
@@ -57,10 +57,10 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($rewards as $reward)
+                            @foreach ($rewards as $key => $reward)
                                 @include('backend.rewards.show')
                                 <tr>
-                                    <td>{{ $reward->id }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>
                                         <img src="/rewardImages/{{ $reward->image }}" width="100px">
                                     </td>

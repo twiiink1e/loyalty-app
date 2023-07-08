@@ -24,11 +24,25 @@
                 <div class="card-header">
                     <h4 class="card-title">Form Input</h4>
                     <p class="card-title-desc">Fill all information below</p>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show mt-2 mb-0">
+                        <i class="mdi mdi-block-helper label-icon"></i>
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show mt-2 mb-0"
+                        role="alert">
+                        <i class="mdi mdi-block-helper label-icon"></i><strong>Error: </strong> {{ $success }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 </div>
                 <div class="card-body p-4">
                     <form action="{{ route('rewards.update', $reward->id) }}" method="POST" enctype="multipart/form-data">

@@ -43,7 +43,7 @@
                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>No</th>
                                 <th>Customer Name</th>
                                 <th>Cusotmer Phone</th>
                                 <th>Point</th>
@@ -54,9 +54,9 @@
 
                         <tbody>
 
-                            @foreach ($points as $point)
+                            @foreach ($points as $key => $point)
                                 <tr>
-                                    <td>{{ $point->id }}</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>{{ $point->customer->name }}</td>
                                     <td>{{ $point->customer->phone }}</td>
                                     <td>{{ $point->point }}</td>
